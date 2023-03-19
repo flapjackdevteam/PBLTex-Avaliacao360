@@ -30,6 +30,10 @@
 
 . https://www.gupy.io/blog/avaliacao-360-graus
 
+### Exemplo de software de avaliação 360
+
+. https://www.youtube.com/watch?v=NKtyp-bH3nA
+
 
 
 
