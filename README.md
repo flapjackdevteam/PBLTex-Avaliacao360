@@ -1,4 +1,4 @@
-# PBLTex-Avaliacao360
+# PBLTex-Avaliacao360 2
 Projeto API do 1° semestre do curso de Banco de Dados
 
 # Membros da equipe
