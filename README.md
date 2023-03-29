@@ -102,7 +102,8 @@ gerencial)</p>
 
 ## Tecnologias Utilizadas
 
-
+<p align="justify"> * Python
+<p align="justify"> * Git/Github (Controle de versão)
 
 <span id="Links">
 
