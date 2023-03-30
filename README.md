@@ -1,5 +1,7 @@
 <br id="topo">
 
+![logo](https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/photo.jpg)
+
 <h1 align="center"> FLAPJACK DevTeam</h1>
 
 
@@ -10,8 +12,7 @@
     <a href="#fluxograma"> Fluxograma</a> |
     <a href="#Diagrama"> Diagrama BPMN</a> |
     <a href="#preview">Wireframe</a> | 
-    <a href="#backlog">Product Backlog</a> | 
-    <a href="#user-stories">User Stories</a> |
+    <a href="#backlog">Product Backlog</a> |
     <a href="#tecnologias">Tecnologias utilizadas</a> |
     <a href="#links">Links importantes</a> | 
     <a href="#equipe">Equipe</a> |
@@ -27,23 +28,18 @@ A instituição vem experimentando algumas soluções de mercado e em uma análi
 <p align="justify"> O desafio proposto ao grupo é apoiar a <strong>PBLTeX</strong> a levantar, especificar e desenvolver uma solução computacional que viabilize a aplicação dessa técnica.</p>
 
 
-
-
 <span id="Cronograma">
 
 ## Cronograma
 
-
-| Sprint | Link                        | Início     | Entrega    |   Status     |
-|--------|-----------------------------|------------|------------|:-------------:
-| 00     | [Kick-off](#Kick-off)       | 13/02/2023 | 03/03/2023 |      ✔       |
-| 01     | [Sprint 01](#sprint1)       | 13/03/2023 | 02/04/2023 | em andamento |
-| 02     | [Sprint 02](#sprint2)       | 03/04/2023 | 23/04/2023 |      -       |
-| 03     | [Sprint 03](#sprint3)       | 24/04/2023 | 14/05/2023 |      -       |
-| 04     | [Sprint 04](#sprint4)       | 15/05/2023 | 04/06/2023 |      -       |
-| 05     | [Feira de Soluções](#feira) | 13/06/2023 | 14/06/2023 |      -       |
-
-
+| Sprint | Link              | Início     | Entrega    |   Status     |
+|--------|-------------------|------------|------------|:-------------:
+| --     | Kick-off          | 13/02/2023 | 03/03/2023 |      ✔       |
+| 01     | [Sprint 01](#sprint1) | 13/03/2023 | 02/04/2023 | em andamento |
+| 02     | [Sprint 02](#sprint2) | 03/04/2023 | 23/04/2023 |      -       |
+| 03     | [Sprint 03](#sprint3) | 24/04/2023 | 14/05/2023 |      -       |
+| 04     | [Sprint 04](#sprint4) | 15/05/2023 | 04/06/2023 |      -       |
+| --     | Feira de Soluções | 13/06/2023 | 14/06/2023 |      -       |
 
 <span id="Requisitos">
 
@@ -65,15 +61,11 @@ gerencial)</p>
 <p align="justify">* Uso de sistema de controle de versão de código (Git)
 <p align="justify">* Documentações</p>
 
-
-
 <span id="Fluxograma">
 
 ## Fluxograma
 
 ![Fluxograma](https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/Fluxograma_app360.png)
-
-
 
 <span id="Diagrama">
 
@@ -90,13 +82,45 @@ gerencial)</p>
 
 ## Product Backlog
 
+> ### Sprint 01
 
+<br>
 
-<span id="User Stories">
+<table>
 
-## User Stories
+| INSTRUÇÃO                                             | FINALIDADE | O QUE FAZER |
+|-------------------------------------------------------|---|---| 
+| Criação/Organização do GitHubCriação                  | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe|Ter um read.me estruturado com todas as informações|  
+| Definir o MVP                                         | Separar e definir os requisitos funcionais mínimos necessários para entrega de um programa funcional.|Desenvolver um software que possibilite o administrador cadastar os integrantes de um time e obter o resultado  gerenciais  através dos dashboads gerados e os usuários realizar as avaliações 360.|
+| Fluxograma                                            | Definição do passo a passo em cada fase do projeto|Pensar e montar o fluxo de interação do usuário no programa.|
+| Prototipo de tela de login do administrador e usuário | Demonstar a interface inicial e funcionalidade do login do administrador e usuário|Começar a escrever o código base utilizando o SimpleGui|
+|Dividir o o administrador do usuários que irá fazer a avaliação|Para que o administrador consiga cadastrar os usuários e os mesmos poderem realizar as avaliações|Idealizar e desenvolver com a equipe o passo a passo|
+|Planejamento das outras Sprints (2, 3 e 4)|Ter uma possível previsão da entrega de cada Sprint futura|Idealizar e desenvolver com a equipe o passo a passo|
 
+> ### Sprint 02
 
+<br>
+
+<table>
+
+| INSTRUÇÃO | FINALIDADE | O QUE FAZER |
+| --- | --- | --- |
+ |Sistema de gerênciamento, cadastro e controle do Administrador no aplicativo | Separar as funcionalidades atribuidas ao administrador dos usuários.|
+|Tela de avaliação 360 do usuário.|Planejar, visualizar e organizar as perguntas utilizadas na avaliação|
+ |Definir e implementar o sistema de avaliação 360º|Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards|
+ | Definir e implementar base de dados contendo usuários e administrador| Criar arquivo .json contendo informações de login de usuário comum e administrador para implementar controle de acesso.|
+
+> ### Sprint 03
+
+<br>
+
+<table>
+
+> ### Sprint 04
+
+<br>
+
+<table>
 
 <span id="Tecnologias">
 
@@ -113,6 +137,7 @@ gerencial)</p>
 
 ## Links Importantes
 
+Disponível em: https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/main/Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md
 
 
 <span id="Equipe">
