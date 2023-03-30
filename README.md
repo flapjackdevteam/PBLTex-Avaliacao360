@@ -84,7 +84,7 @@ gerencial)</p>
 
 <span id="sprint1"></span>
 
-> ## Sprint 1
+### Sprint 1
 
 | INSTRUÇÃO                                                        | FINALIDADE                                                                                            | O QUE FAZER                                                                                                                                                                                         |
 |------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
@@ -96,7 +96,7 @@ gerencial)</p>
 | Planejamento das outras Sprints (2, 3 e 4)                       | Ter uma possível previsão da entrega de cada Sprint futura                                            | Idealizar e desenvolver com a equipe o passo a passo                                                                                                                                                |
 
 <span id="sprint2"></span>
-> ### Sprint 02
+### Sprint 02
 
 | INSTRUÇÃO                                                                    | FINALIDADE                                                                                                              | O QUE FAZER  |
 |------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------|
@@ -106,10 +106,10 @@ gerencial)</p>
  | Definir e implementar base de dados contendo usuários e administrador        | Criar arquivo .json contendo informações de login de usuário comum e administrador para implementar controle de acesso. | ---          |
 
 <span id="sprint3"></span>
-> ### Sprint 03
+### Sprint 03
 
 <span id="sprint4"></span>
-> ### Sprint 04
+### Sprint 04
 
 <span id="Tecnologias"></span>
 
