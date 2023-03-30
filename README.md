@@ -104,6 +104,9 @@ gerencial)</p>
 
 <p align="justify"> * Python
 <p align="justify"> * Git/Github (Controle de versão)
+<p align="justify"> * Figma
+<p align="justify"> * VsCode
+<p align="justify"> * Microsoft Excel
 
 <span id="Links">
 
