@@ -1,6 +1,6 @@
 <br id="topo">
 
-<p align="center"> <img src="https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/photo.jpg"/> </p>
+<p align="center"> <img width="200px" height="200px" src="https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/photo.jpg"/> </p>
 
 <h1 align="center"> FLAPJACK DevTeam</h1>
 
