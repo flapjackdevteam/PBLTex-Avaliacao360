@@ -32,14 +32,14 @@ A instituição vem experimentando algumas soluções de mercado e em uma análi
 
 ## Cronograma
 
-| Sprint | Link                  | Início     | Entrega    |   Status     |
-|--------|-----------------------|------------|------------|:-------------:
-| --     | Kick-off              | 13/02/2023 | 03/03/2023 |      ✔       |
+| Sprint | Link                  | Início     | Entrega    | Status       |
+|--------|-----------------------|------------|------------|--------------|
+| --     | Kick-off              | 13/02/2023 | 03/03/2023 | ✔            |
 | 01     | [Sprint 01](#sprint1) | 13/03/2023 | 02/04/2023 | em andamento |
-| 02     | [Sprint 02](#sprint2) | 03/04/2023 | 23/04/2023 |      -       |
-| 03     | [Sprint 03](#sprint3) | 24/04/2023 | 14/05/2023 |      -       |
-| 04     | [Sprint 04](#sprint4) | 15/05/2023 | 04/06/2023 |      -       |
-| --     | Feira de Soluções     | 13/06/2023 | 14/06/2023 |      -       |
+| 02     | [Sprint 02](#sprint2) | 03/04/2023 | 23/04/2023 | -            |
+| 03     | [Sprint 03](#sprint3) | 24/04/2023 | 14/05/2023 | -            |
+| 04     | [Sprint 04](#sprint4) | 15/05/2023 | 04/06/2023 | -            |
+| --     | Feira de Soluções     | 13/06/2023 | 14/06/2023 | -            |
 
 <span id="Requisitos"></span>
 
@@ -78,6 +78,12 @@ gerencial)</p>
 
 ## Wireframe
 
+### Esboço de tela
+
+### Protótipo de tela
+
+
+
 <span id="backlog"></span>
 
 ## Product Backlog
@@ -86,30 +92,45 @@ gerencial)</p>
 
 ### Sprint 1
 
-| INSTRUÇÃO                                                        | FINALIDADE                                                                                            | O QUE FAZER                                                                                                                                                                                         |
-|------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| 
-| Criação/Organização do GitHubCriação                             | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe      | Ter um read.me estruturado com todas as informações                                                                                                                                                 |  
-| Definir o MVP                                                    | Separar e definir os requisitos funcionais mínimos necessários para entrega de um programa funcional. | Desenvolver um software que possibilite o administrador cadastar os integrantes de um time e obter o resultado  gerenciais  através dos dashboads gerados e os usuários realizar as avaliações 360. |
-| Fluxograma                                                       | Definição do passo a passo em cada fase do projeto                                                    | Pensar e montar o fluxo de interação do usuário no programa.                                                                                                                                        |
-| Prototipo de tela de login do administrador e usuário            | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                    | Começar a escrever o código base utilizando o SimpleGui                                                                                                                                             |
-| Dividir o o administrador do usuários que irá fazer a avaliação  | Para que o administrador consiga cadastrar os usuários e os mesmos poderem realizar as avaliações     | Idealizar e desenvolver com a equipe o passo a passo                                                                                                                                                |
-| Planejamento das outras Sprints (2, 3 e 4)                       | Ter uma possível previsão da entrega de cada Sprint futura                                            | Idealizar e desenvolver com a equipe o passo a passo                                                                                                                                                |
+| INSTRUÇÃO                                             | FINALIDADE                                                                                            |
+|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Criação/Organização do GitHub                         | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.     |                                                                                                                                          
+| Definir o MVP                                         | Separar e definir os requisitos funcionais mínimos necessários para entrega de um programa funcional. |
+| Fluxograma                                            | Definição do passo a passo do projeto.                                                                |
+| Esboço de tela                                        | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.    |
+| Protótipo de tela de login do administrador e usuário | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                    |                                                                                                                                             
+| Planejamento das outras Sprints (2, 3 e 4)            | Ter uma possível previsão da entrega de cada Sprint futura.                                           |                                                                                                                                             
 
 <span id="sprint2"></span>
 ### Sprint 02
 
-| INSTRUÇÃO                                                                    | FINALIDADE                                                                                                              | O QUE FAZER  |
-|------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------|
- | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                    | ---          |
-| Tela de avaliação 360 do usuário.                                            | Planejar, visualizar e organizar as perguntas utilizadas na avaliação                                                   | ---          |
- | Definir e implementar o sistema de avaliação 360º                            | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards               | ---          |
- | Definir e implementar base de dados contendo usuários e administrador        | Criar arquivo .json contendo informações de login de usuário comum e administrador para implementar controle de acesso. | ---          |
+| INSTRUÇÃO                                                                    | FINALIDADE                                                                                                             |
+|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+ | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   |
+| Tela de avaliação 360º do usuário.                                           | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 |
+ | Definir e implementar o sistema de avaliação 360º                            | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             |
+ | Definir e implementar base de dados contendo usuários e administrador        | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. |
 
 <span id="sprint3"></span>
 ### Sprint 03
 
+| INSTRUÇÃO                               | FINALIDADE                                                             |
+|-----------------------------------------|------------------------------------------------------------------------|
+| Implementar e definir os Dashboards     | Detalhar dados e informações dos Dashboards.                           |
+| Dashboard do Time                       | Visualizar as respostas consolidadas referente ao Time e seus membros. |
+| Dashboard individual para cada usuário  | Visualizar as respostas consolidadas para cada membro individualmente. | 
+| Dashboard da Sprint                     | Demonstrar como foi o desempenho da equipe durante a Sprint.           |
+
 <span id="sprint4"></span>
 ### Sprint 04
+
+| INSTRUÇÃO               | FINALIDADE                                                                                        |
+|-------------------------|---------------------------------------------------------------------------------------------------|
+ | Revisão de código       | Garantir que o código esteja funcionando conforme esperado.                                       |
+ | Controle de qualidade   | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                |
+ | Debuggin                | Executar e analisar o código linha por linha para identificar algum erro ou problema.             |
+| Refinamento do software | Garantir a implementação correta e funcional do software de acordo com as especificações projeto. |
+ 
 
 <span id="Tecnologias"></span>
 
@@ -136,16 +157,16 @@ Disponível em: https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/main
 
 | Nome                                      | Função        |LinkedIn|GitHub|
 |-------------------------------------------|---------------|-------- |-------- |
-| **Gleialison dos Santos**                 | Product Owner |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
-| **Rodrigo dos Santos**                    | Scrum Master  |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
-| **Aguinaldo Cardoso de Macedo Júnior**    | Dev     |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
-| **David Astolpho Mendes**                 | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
+| **Gleialison dos Santos**                 | Product Owner |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/gleialison-rezende-835453b0)|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/Gleialison)|
+| **Rodrigo dos Santos**                    | Scrum Master  |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/rodrigo-spcunha)|
+| **Aguinaldo Cardoso de Macedo Júnior**    | Dev     |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/aguinaldojunior31)|
+| **David Astolpho Mendes**                 | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/David5Mende5)|
 | **Fátima Leise de Oliveira**              | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/f%C3%A1tima-leise-oliveira-37724b76/)| [<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/fatimaleise)|
-| **Heitor Cardoso Nogueira**               | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
+| **Heitor Cardoso Nogueira**               | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/HeitorCarNog)|
 | **Júlio César Barbosa da Rosa Rodrigues** | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](http://www.linkedin.com/in/jcbarbosarosa)|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/jcbarbosarosa)|
-| **Lucas de Freitas Venancio**             | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
+| **Lucas de Freitas Venancio**             | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/Lucasfven)|
 | **Michel Momose Marques**                 | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />]()|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/Michel-Momose)|
-| **Rodrigo Pereira**                       | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/mwlite/in/rodrigo-pereira-de-castro-09758853)|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />]()|
+| **Rodrigo Pereira**                       | Dev      |[<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/mwlite/in/rodrigo-pereira-de-castro-09758853)|[<img src="https://camo.githubusercontent.com/fbc3df79ffe1a99e482b154b29262ecbb10d6ee4ed22faa82683aa653d72c4e1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4769744875622d3130303030303f7374796c653d666f722d7468652d6261646765266c6f676f3d676974687562266c6f676f436f6c6f723d7768697465" />](https://github.com/ropcastr)|
 
 
 
