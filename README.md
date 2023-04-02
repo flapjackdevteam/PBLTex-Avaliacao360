@@ -78,11 +78,60 @@ gerencial)</p>
 
 ## Esboço das telas
 
-<img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300>
+<details>
+ <summary> Todas as telas <summary>
+ <br> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300>
+</details>
+
+<details>
+ <summary> Seleção <summary>
+ <br> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300>
+</details>
+
+<details>
+ <summary> login Usuário <summary>
+ <br> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300>
+</details>
+
+<details>
+ <summary> Avaliação <summary>
+ <br> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300>
+</details>
+
+<details>
+ <summary> Fim da avaliação <summary>
+ <br> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> 
+</details>
+
+<details>
+ <summary> Mensagem finalização <summary>
+ <br> 
+ 
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
+</details>
+
+<details>
+ <summary> Login Administrador <summary>
+ <br> 
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> 
+</details>
+
+<details>
+ <summary> Dashboard 1 <summary>
+ <br>  
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300>
+</details>
+
+<details>
+ <summary> Dashboard 2 <summary>
+ <br> 
 <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
+</details>
 
 <span id="backlog"></span>
 
