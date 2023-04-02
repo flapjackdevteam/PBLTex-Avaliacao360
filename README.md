@@ -65,13 +65,13 @@ gerencial)</p>
 
 ## Fluxograma
 
-<img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=300>
+<img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=500>
 
 <span id="Diagrama"></span>
 
 ## Diagrama BPMN
 
-<img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=300>
+<img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=500>
 
 
 <span id="Wireframe"></span>
@@ -81,14 +81,14 @@ gerencial)</p>
 <details>
  <summary> Todas as telas </summary>
 
-  <img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300>
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=500>
 
 </details>
 
 <details>
  <summary> Seleção </summary>
   
-  <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300>
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=500>
 
 </details>
 
@@ -96,49 +96,49 @@ gerencial)</p>
 
  <summary> login Usuário </summary>
 
-  <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300>
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=500>
 
 </details>
 
 <details>
  <summary> Avaliação </summary>
 
-  <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300>
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=500>
 
 </details>
 
 <details>
  <summary> Fim da avaliação </summary>
 
-  <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> 
+  <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=500> 
 
 </details>
 
 <details>
  <summary> Mensagem finalização </summary>
  
- <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=500>
 
 </details>
 
 <details>
  <summary> Login Administrador </summary>
 
- <img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> 
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=500> 
 
 </details>
 
 <details>
  <summary> Dashboard 1 </summary>
 
- <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300>
+ <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=500>
 
 </details>
 
 <details>
  <summary> Dashboard 2 </summary>
 
-<img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
+<img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=500> 
 
 </details>
 
