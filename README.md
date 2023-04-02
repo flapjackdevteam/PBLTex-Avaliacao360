@@ -64,7 +64,7 @@ gerencial)</p>
 <details>
 <span id="Fluxograma"></span>
 
-## Fluxograma
+<summary> ## Fluxograma </summary>
 
 <img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=750>
 
@@ -72,7 +72,8 @@ gerencial)</p>
 </details>
 
 <details>
-## Diagrama BPMN
+
+ <summary> ## Diagrama BPMN </summary>
 
 <img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=750>
 
