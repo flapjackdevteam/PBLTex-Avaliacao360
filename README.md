@@ -78,11 +78,9 @@ gerencial)</p>
 
 ## Esboço das telas
 
-<img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
+<img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300>
+<img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
+<img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
 
 <span id="backlog"></span>
 
