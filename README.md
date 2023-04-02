@@ -171,12 +171,12 @@ gerencial)</p>
 
 ## Tecnologias Utilizadas
 
-<p align="justify"> * Python
-<p align="justify"> * Git/Github (Controle de versão)
-<p align="justify"> * Figma
-<p align="justify"> * VsCode
-<p align="justify"> * Microsoft Excel
-<p align="justify"> * Visio
+* ![Python](https://www.python.org/)
+* ![PySimpleGui](https://www.pysimplegui.org/en/latest/)
+* ![Git/Github (Controle de versão)](https://github.com/)
+* ![Figma](https://www.figma.com/)
+* ![VsCode](https://code.visualstudio.com/)
+* ![Visio](https://www.microsoft.com/pt-br/microsoft-365/visio/flowchart-software)
 
 <span id="Links"></span>
 
@@ -184,11 +184,9 @@ gerencial)</p>
 
 ![Links Importantes de ferramentas, tutoriais e ideias para o projeto API](Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md)
 
-
 <span id="Equipe"></span>
 
 ## Equipe
-
 
 | Nome                                      | Função        |LinkedIn|GitHub|
 |-------------------------------------------|---------------|-------- |-------- |
