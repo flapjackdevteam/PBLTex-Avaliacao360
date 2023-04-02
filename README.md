@@ -79,62 +79,68 @@ gerencial)</p>
 ## Esboço das telas
 
 <details>
- <summary> Todas as telas <summary>
- <br> 
+ <summary> Todas as telas </summary>
+
   <img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300>
+
 </details>
 
 <details>
- <summary> Seleção <summary>
- <br> 
+ <summary> Seleção </summary>
+  
   <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300>
+
 </details>
 
 <details>
- <summary> login Usuário <summary>
- <br> 
+
+ <summary> login Usuário </summary>
+
   <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300>
+
 </details>
 
 <details>
- <summary> Avaliação <summary>
- <br> 
+ <summary> Avaliação </summary>
+
   <img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300>
+
 </details>
 
 <details>
- <summary> Fim da avaliação <summary>
- <br> 
+ <summary> Fim da avaliação </summary>
+
   <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> 
+
 </details>
 
 <details>
- <summary> Mensagem finalização <summary>
- <br> 
+ <summary> Mensagem finalização </summary>
  
  <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
+
 </details>
 
 <details>
- <summary> Login Administrador <summary>
- <br> 
+ <summary> Login Administrador </summary>
+
  <img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> 
+
 </details>
 
 <details>
- <summary> Dashboard 1 <summary>
- <br>  
+ <summary> Dashboard 1 </summary>
+
  <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300>
+
 </details>
 
 <details>
- <summary> Dashboard 2 <summary>
- <br> 
+ <summary> Dashboard 2 </summary>
+
 <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
+
 </details>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/todas.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/login_usuario.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/fim_avaliacao.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=300>
-<img src="Documenta%C3%A7%C3%A3o/sketchs/login_adm.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_1.png" width=300> <img src="Documenta%C3%A7%C3%A3o/sketchs/dashboard_2.png" width=300> 
 
 <span id="backlog"></span>
 
