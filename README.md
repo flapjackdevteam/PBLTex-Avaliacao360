@@ -1,6 +1,6 @@
 <br id="topo">
 
-<p align="center"> <img width="200px" height="200px" src="https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/photo.jpg"/> </p>
+<p align="center"> <img width="200px" height="200px" src="Documenta%C3%A7%C3%A3o/photo.jpg"/> </p>
 
 <h1 align="center"> FLAPJACK DevTeam</h1>
 
@@ -65,13 +65,13 @@ gerencial)</p>
 
 ## Fluxograma
 
-![Fluxograma](https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/Fluxograma_app360.png)
+<img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=300>
 
 <span id="Diagrama"></span>
 
 ## Diagrama BPMN
 
-![Diagrama](https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/dev/Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png)
+<img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=300>
 
 
 <span id="Wireframe"></span>
@@ -147,7 +147,7 @@ gerencial)</p>
 
 ## Links Importantes
 
-Disponível em: https://github.com/flapjackdevteam/PBLTex-Avaliacao360/blob/main/Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md
+![Links Importantes de ferramentas, tutoriais e ideias para o projeto API](Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md)
 
 
 <span id="Equipe"></span>
