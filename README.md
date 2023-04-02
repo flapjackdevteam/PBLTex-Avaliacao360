@@ -61,6 +61,7 @@ gerencial)</p>
 * Uso de sistema de controle de versão de código (Git)
 * Documentações</p>
 
+<details>
 <span id="Fluxograma"></span>
 
 ## Fluxograma
@@ -68,13 +69,17 @@ gerencial)</p>
 <img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=750>
 
 <span id="Diagrama"></span>
+</details>
 
+<details>
 ## Diagrama BPMN
 
 <img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=750>
 
 
 <span id="Wireframe"></span>
+</details>
+
 
 ## Esboço das telas
 
