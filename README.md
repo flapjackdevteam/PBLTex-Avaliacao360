@@ -67,7 +67,7 @@ gerencial)</p>
 ## Fluxograma 
 
 <details>
- <summary> Click para visualizar </summary>
+ <summary> Esquema visual </summary>
 
  <img src="Documenta%C3%A7%C3%A3o/Fluxograma_app360.png" width=750>
 
@@ -78,7 +78,7 @@ gerencial)</p>
 ## Diagrama BPMN
 
 <details>
- <summary> Click para visualizar </summary>
+ <summary> Esquema visual </summary>
 
  <img src="Documenta%C3%A7%C3%A3o/Diagrama_BPMN.png" width=750>
 
