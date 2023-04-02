@@ -46,20 +46,20 @@ A instituição vem experimentando algumas soluções de mercado e em uma análi
 ## Requisitos
 
 ### Requisitos Funcionais
-<p align="justify"> * Possuir um controle de usuários mínimo
-<p align="justify">* Possuir controle de perfis (administrador e integrantes)
-<p align="justify">* Possuir controle de Turmas e Times
-<p align="justify">* Possuir controle de sprints
-<p align="justify">* Deve possibilitar a realização, por um determinado integrante do Time, da avaliação 
+* Possuir um controle de usuários mínimo
+* Possuir controle de perfis (administrador e integrantes)
+* Possuir controle de Turmas e Times
+* Possuir controle de sprints
+* Deve possibilitar a realização, por um determinado integrante do Time, da avaliação 
 dos demais integrantes, incluindo a sí próprio, de forma individualizada.
-<p align="justify">*  Deve prover quatro ou mais Dashboards de acompanhamento (operacional e 
+*  Deve prover quatro ou mais Dashboards de acompanhamento (operacional e 
 gerencial)</p>
 
 ### Requisitos Não Funcionais
-<p align="justify">* Linguagem de programação Python;
-<p align="justify">* Uso de base de dados simples, como Text, CSV e ZODB;
-<p align="justify">* Uso de sistema de controle de versão de código (Git)
-<p align="justify">* Documentações</p>
+* Linguagem de programação Python;
+* Uso de base de dados simples, como Text, CSV e ZODB;
+* Uso de sistema de controle de versão de código (Git)
+* Documentações</p>
 
 <span id="Fluxograma"></span>
 
