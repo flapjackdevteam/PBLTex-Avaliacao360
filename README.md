@@ -145,50 +145,27 @@ gerencial)</p>
 <span id="backlog"></span>
 
 ## Product Backlog
+| ID | User History                                                                                                           | Backlog                                                                      | Sprint                                                    | Prioridade |
+|----|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------|------------|
+|1   | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.                      | Criação/Organização do GitHub                                                |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Alta       | 
+|2   | Separar e definir os requisitos funcionais mínimos necessários para entrega de um programa funcional.                  | Definir o MVP                                                                |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Média      |
+|3   | Definição do fluxo de interação do usuário.                                                                            | Fluxograma                                                                   |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Média      |
+|4   | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.                     | Esboço de tela                                                               |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Alta       |
+|5   | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                                     | Protótipo de tela de login do administrador e usuário                        |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Baixa      |
+|6   | Ter uma possível previsão da entrega de cada Sprint futura.                                                            | Planejamento das outras Sprints (2, 3 e 4)                                   |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Alta       |
+|7   | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Alta       |
+|8   | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 | Tela de avaliação 360º do usuário.                                           |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Alta       |
+|9   | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             | Definir e implementar o sistema de avaliação 360º                            |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Alta       |
+|10  | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. | Definir e implementar base de dados contendo usuários e administrador        |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Média      |
+|11  | Detalhar dados e informações dos Dashboards.                                                                           | Definir os Dashboards                                                        |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Alta       |
+|12  | Visualizar as respostas consolidadas referente ao Time e seus membros.                                                 | Dashboard do Time                                                            |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Alta       |
+|13  | Visualizar as respostas consolidadas para cada membro individualmente.                                                 | Dashboard individual para cada usuário                                       |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Alta       |
+|14  | Demonstrar como foi o desempenho da equipe durante a Sprint.                                                           | Dashboard da Sprint                                                          |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Alta       |
+|15  | Garantir que o código esteja funcionando conforme esperado.                                                            | Revisão de código                                                            |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Alta       |
+|16  | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                                     | Controle de qualidade                                                        |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Média      |
+|17  | Executar e analisar o código linha por linha para identificar algum erro ou problema.                                  | Debuggin                                                                     |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Alta       |
+|18  | Garantir a implementação correta e funcional do software de acordo com as especificações projeto.                      | Refinamento do software                                                      |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Baixa      |
 
-<span id="sprint1"></span>
-
-### Sprint 1
-
-| INSTRUÇÃO                                             | FINALIDADE                                                                                            |
-|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-| Criação/Organização do GitHub                         | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.     |                                                                                                                                          
-| Definir o MVP                                         | Separar e definir os requisitos funcionais mínimos necessários para entrega de um programa funcional. |
-| Fluxograma                                            | Definição do passo a passo do projeto.                                                                |
-| Esboço de tela                                        | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.    |
-| Protótipo de tela de login do administrador e usuário | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                    |                                                                                                                                             
-| Planejamento das outras Sprints (2, 3 e 4)            | Ter uma possível previsão da entrega de cada Sprint futura.                                           |                                                                                                                                             
-
-<span id="sprint2"></span>
-### Sprint 02
-
-| INSTRUÇÃO                                                                    | FINALIDADE                                                                                                             |
-|------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
- | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   |
-| Tela de avaliação 360º do usuário.                                           | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 |
- | Definir e implementar o sistema de avaliação 360º                            | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             |
- | Definir e implementar base de dados contendo usuários e administrador        | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. |
-
-<span id="sprint3"></span>
-### Sprint 03
-
-| INSTRUÇÃO                               | FINALIDADE                                                             |
-|-----------------------------------------|------------------------------------------------------------------------|
-| Implementar e definir os Dashboards     | Detalhar dados e informações dos Dashboards.                           |
-| Dashboard do Time                       | Visualizar as respostas consolidadas referente ao Time e seus membros. |
-| Dashboard individual para cada usuário  | Visualizar as respostas consolidadas para cada membro individualmente. | 
-| Dashboard da Sprint                     | Demonstrar como foi o desempenho da equipe durante a Sprint.           |
-
-<span id="sprint4"></span>
-### Sprint 04
-
-| INSTRUÇÃO               | FINALIDADE                                                                                        |
-|-------------------------|---------------------------------------------------------------------------------------------------|
- | Revisão de código       | Garantir que o código esteja funcionando conforme esperado.                                       |
- | Controle de qualidade   | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                |
- | Debuggin                | Executar e analisar o código linha por linha para identificar algum erro ou problema.             |
-| Refinamento do software | Garantir a implementação correta e funcional do software de acordo com as especificações projeto. |
- 
 
 <span id="Tecnologias"></span>
 
