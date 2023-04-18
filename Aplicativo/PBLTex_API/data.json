@@ -1,0 +1,43 @@
+{
+  "admin": {
+    "senha": "admin123"
+  },
+  "usuarios": [
+    {
+      "nome": "Rodrigo Santos",
+      "matricula": "123456"
+    },
+    {
+      "nome": "Gleialison dos Santos",
+      "matricula": "234567"
+    },
+    {
+      "nome": "Rodrigo Pereira",
+      "matricula": "345678"
+    },
+    {
+      "nome": "Fátima Leise",
+      "matricula": "456789"
+    },
+    {
+      "nome": "Michel Momose",
+      "matricula": "567890"
+    },
+    {
+      "nome": "David Astolpho",
+      "matricula": "678901"
+    },
+    {
+      "nome": "Júlio César",
+      "matricula": "789012"
+    },
+    {
+      "nome": "Agnaldo Cardoso",
+      "matricula": "890123"
+    },
+    {
+      "nome": "Heitor Cardoso",
+      "matricula": "901234"
+    }
+  ]
+}
