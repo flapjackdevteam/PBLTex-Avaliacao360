@@ -1,10 +1,5 @@
-﻿Como é a comunicação do usuário?,Ruim,Regular,Boa
-O usuário apresenta pontualidade?,Não,Às vezes,Sempre
-O usuário apresenta criatividade?,Não,Às vezes,Sempre
-O usuário trabalha bem em equipe?,Não,Às vezes,Sempre
-O usuário apresenta comprometimento?,Não,Às vezes,Sempre
-O usuário tem habilidades técnicas?,Não,Às vezes,Sempre
-O usuário demonstra liderança?,Não,Às vezes,Sempre
-O usuário tem iniciativa?,Não,Às vezes,Sempre
-O usuário demonstra proatividade?,Não,Às vezes,Sempre
-O usuário é responsável?,Não,Às vezes,Sempre
+﻿Comunicação e Trabalho em Equipe:,0,1,2,3,4,5
+Engajamento e Pró-atividade:,0,1,2,3,4,5
+Conhecimento e Aplicabilidade Técnica:,0,1,2,3,4,5
+Entrega de Resultados com Valor Agregado:,1,2,3,4,5
+Auto-gestão das Atividades:,0,1,2,3,4,5
