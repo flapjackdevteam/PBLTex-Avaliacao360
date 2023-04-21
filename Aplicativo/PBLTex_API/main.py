@@ -133,7 +133,7 @@ while True:
                                 # Código para enviar a avaliação...
                                 with open('evaluation_results.json', 'w') as f:
                                     json.dump(perguntas, f)
-                                sg.popup('Evaluation submitted!')
+                                sg.popup('Avaliação enviada com sucesso!')
                                 # Fecha a janela de avaliação
                                 avaliacao_janela.close()
                 else:
