@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import csv
 import json
 
+
 # Carrega o conteúdo do arquivo data.json em um dicionário Python
 with open('data.json', 'r') as f:
     data = json.load(f)
@@ -96,7 +97,7 @@ while True:
                         # Define o layout da janela de avaliação
                         avaliacao_layout = [
                             [sg.Text('Avaliação 360°', font=('Helvetica', 30), justification='center')],
-                            [sg.Text('Por favor, avalie o usuário com base nas seguintes perguntas:',
+                            [sg.Text('Por favor, avalie o usuário de 0 a 5 com base nas seguintes competencias:',
                                         font=('Helvetica', 20),
                                         justification='center')],
                             [sg.Text('', size=(50, 1))],
@@ -130,6 +131,9 @@ while True:
                                 break
                             elif event == 'Enviar Avaliação':
                                 # Código para enviar a avaliação...
+                                with open('evaluation_results.json', 'w') as f:
+                                    json.dump(perguntas, f)
+                                sg.popup('Evaluation submitted!')
                                 # Fecha a janela de avaliação
                                 avaliacao_janela.close()
                 else:
