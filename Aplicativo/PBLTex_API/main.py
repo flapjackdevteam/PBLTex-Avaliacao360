@@ -43,6 +43,7 @@ while True:
         # Abre a janela de login do usuário comum
         usuario = login.popup_login(event)
         if (usuario):
+            print(usuario)
             avaliacao.tela_avaliacao(usuario)
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
