@@ -21,6 +21,15 @@
    
 <span id="Objetivo"></span>
 
+## Como rodar a aplicação
+1. Pré-requisitos git, python3, pip3, tkinter
+2. Clone o repositório `git clone`
+3. Baixe o módulo virtualenv com `pip3 install virtualenv`
+4. Crie um novo ambiente virtual, caso ainda não exista, com `virtualenv .venv`
+5. Acessar o ambiente de execução virtual com `source .venv/bin/activate`
+6. Instalar as dependências com `pip install -r requirements.txt`
+7. Executar a aplicação chamando `python main.py`
+ 
 ## Objetivo
 
 <p align="justify"> A instituição de ensino <strong> PBLTeX</strong></strong>, especializada em cursos práticos de ensino aplicando PBL (Problem Based Learning) desenvolveu uma dinâmica de <strong> Avaliação Democratizada</strong> baseada na técnica de <strong> Avaliação 360º</strong>.
@@ -32,14 +41,14 @@ A instituição vem experimentando algumas soluções de mercado e em uma análi
 
 ## Cronograma
 
-| Sprint | Link                  | Início     | Entrega    | Status       |
-|--------|-----------------------|------------|------------|--------------|
-| --     | Kick-off              | 13/02/2023 | 03/03/2023 | ✔            |
-| 01     | [Sprint 01](#sprint1) | 13/03/2023 | 02/04/2023 | em andamento |
-| 02     | [Sprint 02](#sprint2) | 03/04/2023 | 23/04/2023 | -            |
-| 03     | [Sprint 03](#sprint3) | 24/04/2023 | 14/05/2023 | -            |
-| 04     | [Sprint 04](#sprint4) | 15/05/2023 | 04/06/2023 | -            |
-| --     | Feira de Soluções     | 13/06/2023 | 14/06/2023 | -            |
+| Sprint | Link                  | Início     | Entrega    | Status     |
+|--------|-----------------------|------------|------------|------------|
+| --     | Kick-off              | 13/02/2023 | 03/03/2023 | ✔          |
+| 01     | [Sprint 01](#sprint1) | 13/03/2023 | 02/04/2023 | ✔   |
+| 02     | [Sprint 02](#sprint2) | 03/04/2023 | 23/04/2023 | ✔            |
+| 03     | [Sprint 03](#sprint3) | 24/04/2023 | 14/05/2023 | -          |
+| 04     | [Sprint 04](#sprint4) | 15/05/2023 | 04/06/2023 | -          |
+| --     | Feira de Soluções     | 13/06/2023 | 14/06/2023 | -          |
 
 <span id="Requisitos"></span>
 
