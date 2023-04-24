@@ -21,6 +21,15 @@
    
 <span id="Objetivo"></span>
 
+## Como rodar a aplicação
+1. Pré-requisitos git, python3, pip3, tkinter
+2. Clone o repositório `git clone`
+3. Baixe o módulo virtualenv com `pip3 install virtualenv`
+4. Crie um novo ambiente virtual, caso ainda não exista, com `virtualenv .venv`
+5. Acessar o ambiente de execução virtual com `source .venv/bin/activate`
+6. Instalar as dependências com `pip install -r requirements.txt`
+7. Executar a aplicação chamando `python main.py`
+ 
 ## Objetivo
 
 <p align="justify"> A instituição de ensino <strong> PBLTeX</strong></strong>, especializada em cursos práticos de ensino aplicando PBL (Problem Based Learning) desenvolveu uma dinâmica de <strong> Avaliação Democratizada</strong> baseada na técnica de <strong> Avaliação 360º</strong>.
