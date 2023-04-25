@@ -1,5 +1,4 @@
 import PySimpleGUI as sg
-import csv
 import json
 
 usuarios_nao_avaliados = []
@@ -25,24 +24,26 @@ def obter_proximo_usuario():
 
 def layout_questionario(layout):
     layout.append([sg.HSeparator(pad=(0,0))])
+
     layout.append([
-        sg.Text('', font=('Arial', 12), size=(41, 1)),
-        sg.Text('0', font=('Arial', 12), size=(5, 1)),
-        sg.Text('1', font=('Arial', 12), size=(5, 1)),
-        sg.Text('2', font=('Arial', 12), size=(5, 1)),
-        sg.Text('3', font=('Arial', 12), size=(5, 1))
+        sg.Text(' ', font=('Arial', 12), size=(41, 1)),
+        sg.Text('1', font=('Arial', 12), size=(3, 1)),
+        sg.Text('2', font=('Arial', 12), size=(3, 1)),
+        sg.Text('3', font=('Arial', 12), size=(3, 1)),
+        sg.Text('4', font=('Arial', 12), size=(3, 1)),
+        sg.Text('5', font=('Arial', 12), size=(3, 1)),
         ])
     
     layout.append([sg.HSeparator(pad=(0,0))])
-    print
+    
     for i in range(0, len(perguntas)):
         layout.append([
             sg.Text(perguntas[i], font=('Arial', 12), size=(40, 1)),
-            #sg.VSeparator(),
-            sg.Radio('', i, default=False, size=(3, 1), key=f"resposta-{i*4}"),
-            sg.Radio('', i, default=False, size=(3, 1), key=f"resposta-{i*4+1}"),
-            sg.Radio('', i, default=False, size=(3, 1), key=f"resposta-{i*4+2}"),
-            sg.Radio('', i, default=False, size=(3, 1), key=f"resposta-{i*4+3}")
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-1"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-2"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-3"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-4"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-5")
         ])
 
     layout.append([sg.HSeparator(),sg.Text("0-Ruim, 1-Regular, 2-Bom, 3-Excelente")])
@@ -60,6 +61,7 @@ def layout_avaliacao(nome):
     button_layout = [[sg.Button("Individual", key="individual", disabled=True, size=(10,2), button_color=('white', 'gray'))],
                     [sg.Button("Equipe", key="equipe", disabled=True, size=(10,2), button_color=('white', 'gray'))],
                     [sg.Button("Turma", key="turma", disabled=True, size=(10,2), button_color=('white', 'gray'))],
+                    [sg.HSeparator()],
                     [sg.Button("Limpar", key="limpar", size=(10,2))],
                     [sg.Button("Sair", key="sair", size=(10,2))]]
 
@@ -83,6 +85,16 @@ def layout_avaliacao(nome):
 
     return layout
 
+# Função para obter as opções selecionadas
+def opcoes_selecionadas(values):
+    respostas = {}
+    for i in range(0, len(perguntas)):
+        for j in range(1, 5):
+            if values[f"pergunta-{i}-opcao-{j}"]:
+                #print(f"pergunta-{i}-opcao-{j}")
+                respostas.update({f"p{i}": j})
+    return respostas
+
 def tela_avaliacao(usuario):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
@@ -93,6 +105,11 @@ def tela_avaliacao(usuario):
     # Carrega o conteúdo do arquivo data.json em um dicionário Python
     with open('data.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
+
+    # Carrega o arquivo avaliações.json
+    avaliacoes = {}
+    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
+        avaliacoes = json.load(f)
 
     # Armazena a lista de usuários não avaliados
     usuarios_nao_avaliados = [usuario for usuario in data['usuarios'] if usuario['matricula'] != 'admin']
@@ -114,6 +131,9 @@ def tela_avaliacao(usuario):
 
     avaliacao_janela_anterior = avaliacao_janela
 
+    avaliacao = {"sprint": "", "tipo": "individual", f"matricula": f"{usuario['matricula']}", "respostas": {}}
+    print(avaliacao)    
+
     # Loop de eventos da janela de avaliação
     while True:
         event, values = avaliacao_janela.read()
@@ -123,24 +143,28 @@ def tela_avaliacao(usuario):
 
         # Limpa as opções elecionadas
         elif event == 'limpar':
-            for i in range(0, len(values)):
-                avaliacao_janela[f'resposta-{i}'].Update(False)
+            for i in range(0, len(perguntas)):
+                for j in range(1, 6):
+                    if values[f"pergunta-{i}-opcao-{j}"]:
+                        avaliacao_janela[f'pergunta-{i}-opcao-{j}'].Update(False)
             continue
 
         elif event == 'proximo':
-            # Conta quantas respostas há
-            count = 0
-            for i in range(0, len(values)):
-                if values[f'resposta-{i}'] == True:
-                    count = count + 1
-                    data
+            # Obtém as opções selecionadas
+            respostas = opcoes_selecionadas(values)
+            print(opcoes_selecionadas(values))
                     
             # Verifica se aquantidade de respostas é menor que a quantidade de perguntas
-            if count < len(perguntas):
+            if len(respostas) < len(perguntas):
                 sg.popup("Preencha todas os tópicos antes de continuar")
                 continue
 
-            # Código para armazenar a avaliação
+            # Código para armazenar a avaliação em uma estrutura temporária
+            avaliacao.update({"respostas": respostas})
+            print(avaliacao)
+
+            avaliacoes.update({"1460282313028": ["avaliacao"].append(avaliacao)})
+            print(avaliacoes)
 
             # Atualiza o usuário atual e a lista de usuários não avaliados
             atualizar_usuario_e_usuarios_nao_avaliados(usuario_atual)
@@ -176,3 +200,4 @@ def tela_avaliacao(usuario):
             avaliacao_janela.close()
             break
 
+tela_avaliacao({'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
