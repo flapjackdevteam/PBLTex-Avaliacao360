@@ -46,7 +46,7 @@ def layout_questionario(layout):
             sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-5")
         ])
 
-    layout.append([sg.HSeparator(),sg.Text("0-Ruim, 1-Regular, 2-Bom, 3-Excelente")])
+    layout.append([sg.HSeparator(),sg.Text("1-Ruim, 2-Regular, 3-Bom, 4-Muito Bom, 5-Excelente")])
 
 def layout_avaliacao(nome):
     # Define o layout da janela de avaliação
@@ -202,4 +202,3 @@ def tela_avaliacao(usuario):
             avaliacao_janela.close()
             break
 
-tela_avaliacao({'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
