@@ -9,9 +9,9 @@ import login
 sg.theme('DefaultNoMoreNagging')
 
 # Define as imagens dos botões
-admin_button = sg.Button(key='admin', image_filename='admin.png', button_color=('white', 'white'), size=(300, 300),
+admin_button = sg.Button(key='admin', image_filename='recursos/admin.png', button_color=('white', 'white'), size=(300, 300),
                          border_width=6)
-user_button = sg.Button(key='user', image_filename='user.png', button_color=('white', 'white'), size=(300, 300),
+user_button = sg.Button(key='user', image_filename='recursos/user.png', button_color=('white', 'white'), size=(300, 300),
                         border_width=6)
 
 # Define o layout da janela principal

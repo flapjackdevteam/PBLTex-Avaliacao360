@@ -54,7 +54,8 @@ def layout_avaliacao(nome):
     layout = [
     [sg.Text('Você está avaliando o usuário ' + nome,
             font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
-            relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
+            relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)]
+            ,
     [sg.Text('Responda ao questionário abaixo:', font=('Arial', 14), size=(40, 1))]
     ]
 
@@ -89,9 +90,9 @@ def layout_avaliacao(nome):
 def opcoes_selecionadas(values):
     respostas = {}
     for i in range(0, len(perguntas)):
-        for j in range(1, 5):
-            if values[f"pergunta-{i}-opcao-{j}"]:
-                #print(f"pergunta-{i}-opcao-{j}")
+        for j in range(1, 6):
+            if values[f"pergunta-{i}-opcao-{j}"] == True:
+                print(f"pergunta-{i}-opcao-{j}")
                 respostas.update({f"p{i}": j})
     return respostas
 
@@ -115,7 +116,7 @@ def tela_avaliacao(usuario):
     usuarios_nao_avaliados = [usuario for usuario in data['usuarios'] if usuario['matricula'] != 'admin']
 
     atualizar_usuario_e_usuarios_nao_avaliados(usuario)
-    # Cria a janela de avaliação
+    
     respostas = []  # Criar uma lista para armazenar as respostas
 
     avaliacao_layout = layout_avaliacao(usuario["nome"])
@@ -131,6 +132,7 @@ def tela_avaliacao(usuario):
 
     avaliacao_janela_anterior = avaliacao_janela
 
+    # Variável para armazenar as responstas
     avaliacao = {"sprint": "", "tipo": "individual", f"matricula": f"{usuario['matricula']}", "respostas": {}}
     print(avaliacao)    
 
@@ -144,7 +146,7 @@ def tela_avaliacao(usuario):
         # Limpa as opções elecionadas
         elif event == 'limpar':
             for i in range(0, len(perguntas)):
-                for j in range(1, 6):
+                for j in range(0, 5):
                     if values[f"pergunta-{i}-opcao-{j}"]:
                         avaliacao_janela[f'pergunta-{i}-opcao-{j}'].Update(False)
             continue
