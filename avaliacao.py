@@ -39,11 +39,11 @@ def layout_questionario(layout):
     for i in range(0, len(perguntas)):
         layout.append([
             sg.Text(perguntas[i], font=('Arial', 12), size=(40, 1)),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-1"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-2"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-3"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-4"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-5")
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-1", background_color="#FF6347"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-2", background_color="#EB8A41"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-3", background_color="#D6B13B"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-4", background_color="#C2D835"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-5", background_color="#ADFF2F")
         ])
 
     layout.append([sg.HSeparator(),sg.Text("1-Ruim, 2-Regular, 3-Bom, 4-Muito Bom, 5-Excelente")])
@@ -92,11 +92,19 @@ def opcoes_selecionadas(values):
     for i in range(0, len(perguntas)):
         for j in range(1, 6):
             if values[f"pergunta-{i}-opcao-{j}"] == True:
-                print(f"pergunta-{i}-opcao-{j}")
                 respostas.update({f"p{i}": j})
     return respostas
 
-def tela_avaliacao(usuario):
+def carregar_avaliacao(usuario):
+    avaliacao = {}
+    return avaliacao
+
+
+def salvar_avaliacao(usuario, avaliacao):
+    pass
+
+
+def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
 
@@ -125,6 +133,8 @@ def tela_avaliacao(usuario):
     avaliacao_janela = sg.Window('Avaliação 360° - PBLTex', avaliacao_layout, finalize=True,
                             resizable=True, element_padding=(20, 20))
 
+    # Habilita o botão da avaliação individual, o botão serve apenas para indicar que está
+    # sendo feita a avaliação individual
     avaliacao_janela['individual'].update(disabled=False, button_color=('white', 'green'))
 
     # Definir o tamanho mínimo da janela
@@ -132,9 +142,8 @@ def tela_avaliacao(usuario):
 
     avaliacao_janela_anterior = avaliacao_janela
 
-    # Variável para armazenar as responstas
-    avaliacao = {"sprint": "", "tipo": "individual", f"matricula": f"{usuario['matricula']}", "respostas": {}}
-    print(avaliacao)    
+    # Estrutura para armazenar temporariamente a avaliação
+    avaliacao = {"sprint": "", "tipo": "individual", f"matricula": f"{usuario['matricula']}", "respostas": {}}   
 
     # Loop de eventos da janela de avaliação
     while True:
@@ -154,19 +163,20 @@ def tela_avaliacao(usuario):
         elif event == 'proximo':
             # Obtém as opções selecionadas
             respostas = opcoes_selecionadas(values)
-            print(opcoes_selecionadas(values))
                     
-            # Verifica se aquantidade de respostas é menor que a quantidade de perguntas
+            # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):
                 sg.popup("Preencha todas os tópicos antes de continuar")
                 continue
 
-            # Código para armazenar a avaliação em uma estrutura temporária
-            avaliacao.update({"respostas": respostas})
-            print(avaliacao)
+            # Armazenar a avaliação em uma estrutura temporária
+            avaliacao["respostas"] = respostas
 
-            avaliacoes.update({"1460282313028": ["avaliacao"].append(avaliacao)})
-            print(avaliacoes)
+            # Apenda a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
+            avaliacoes[usuario["matricula"]]["avaliacao"].append(avaliacao)
+
+            # Cria uma nova estrutura temporária para armezenar a próxima avaliação
+            avaliacao = {"sprint": "", "tipo": "equipe", f"matricula": f"{usuario_atual['matricula']}", "respostas": {}}
 
             # Atualiza o usuário atual e a lista de usuários não avaliados
             atualizar_usuario_e_usuarios_nao_avaliados(usuario_atual)
@@ -185,6 +195,8 @@ def tela_avaliacao(usuario):
                                             finalize=True, resizable=True,
                                             element_padding=(20, 20))
                 
+                # Habilita o botão da avaliação da equipe, o botão serve apenas para indicar que está
+                # sendo feita a avaliação individual
                 avaliacao_janela['equipe'].update(disabled=False, button_color=('white', 'green'))
 
                 # Definir o tamanho mínimo da janela
@@ -202,3 +214,4 @@ def tela_avaliacao(usuario):
             avaliacao_janela.close()
             break
 
+tela_avaliacao(1, {'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
