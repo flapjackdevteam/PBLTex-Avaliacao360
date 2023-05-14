@@ -43,11 +43,11 @@ def layout_questionario(layout):
     for i in range(0, len(perguntas)):
         layout.append([
             sg.Text(perguntas[i], font=('Arial', 12), size=(40, 1)),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-1", background_color="#FF6347"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-2", background_color="#EB8A41"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-3", background_color="#D6B13B"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-4", background_color="#C2D835"),
-            sg.Radio('', i, default=False, size=(1, 1), key=f"pergunta-{i}-opcao-5", background_color="#ADFF2F")
+            sg.Radio('', i, default=False, size=(1, 1), key=f"p{i}-opcao-1", background_color="#FF6347"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"p{i}-opcao-2", background_color="#EB8A41"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"p{i}-opcao-3", background_color="#D6B13B"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"p{i}-opcao-4", background_color="#C2D835"),
+            sg.Radio('', i, default=False, size=(1, 1), key=f"p{i}-opcao-5", background_color="#ADFF2F")
         ])
 
     layout.append([sg.HSeparator(),sg.Text("1-Ruim, 2-Regular, 3-Bom, 4-Muito Bom, 5-Excelente")])
@@ -95,7 +95,7 @@ def opcoes_selecionadas(values):
     respostas = {}
     for i in range(0, len(perguntas)):
         for j in range(1, 6):
-            if values[f"pergunta-{i}-opcao-{j}"] == True:
+            if values[f"p{i}-opcao-{j}"] == True:
                 respostas.update({f"p{i}": j})
     return respostas
 
@@ -175,7 +175,14 @@ def tela_avaliacao(sprint, usuario):
     avaliacao_janela_anterior = avaliacao_janela
 
     # Estrutura para armazenar temporariamente a avaliação
-    avaliacao = {"tipo": "individual", "respostas": {}}   
+    avaliacao = {"tipo": "individual", "respostas": {}}
+
+    if usuario_atual["matricula"] in avaliacoes:
+        if avaliacoes[usuario_atual["matricula"]].get("respostas") != None:
+            respostas = avaliacoes[usuario_atual["matricula"]]["respostas"]
+
+            for r in respostas:
+                avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
 
     # Loop de eventos da janela de avaliação
     while True:
@@ -187,9 +194,9 @@ def tela_avaliacao(sprint, usuario):
         # Limpa as opções elecionadas
         elif event == 'limpar':
             for i in range(0, len(perguntas)):
-                for j in range(0, 5):
-                    if values[f"pergunta-{i}-opcao-{j}"]:
-                        avaliacao_janela[f'pergunta-{i}-opcao-{j}'].Update(False)
+                for j in range(1, 6):
+                    if values[f"p{i}-opcao-{j}"]:
+                        avaliacao_janela[f'p{i}-opcao-{j}'].Update(False)
             continue
 
         elif event == 'proximo':
@@ -239,13 +246,21 @@ def tela_avaliacao(sprint, usuario):
                 avaliacao_janela_anterior.close()
                 avaliacao_janela_anterior = avaliacao_janela
 
+                if usuario_atual["matricula"] in avaliacoes:
+                    if avaliacoes[usuario_atual["matricula"]].get("respostas") != None:
+                        respostas = avaliacoes[usuario_atual["matricula"]]["respostas"]
+
+                        for r in respostas:
+                            avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
+
             else:
                 sg.popup('A avaliação foi concluída!', title='Fim da avaliação', keep_on_top=True)
                 break
         elif event == 'sair':
-            salvar_avaliacao(usuario, sprint, avaliacoes)
             avaliacao_janela.close()
             break
+    
+    salvar_avaliacao(usuario, sprint, avaliacoes)
 
 # Esse código roda somente em debug
 if gettrace():
