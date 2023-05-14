@@ -44,7 +44,7 @@ while True:
         usuario = login.popup_login(event)
         if (usuario):
             print(usuario)
-            avaliacao.tela_avaliacao(usuario)
+            avaliacao.tela_avaliacao(1, usuario)
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
 

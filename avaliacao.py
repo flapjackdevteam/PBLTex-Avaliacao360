@@ -1,5 +1,9 @@
 import PySimpleGUI as sg
 import json
+import sys
+
+# Para propósito de debug apenas
+gettrace = getattr(sys, 'gettrace', None)
 
 usuarios_nao_avaliados = []
 usuario_atual = None
@@ -95,14 +99,36 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def carregar_avaliacao(usuario):
-    avaliacao = {}
-    return avaliacao
+def carregar_avaliacao(sprint, usuario):
+    # Carrega todo o arquivo json na variável local data
+    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
 
+    avaliacoes = {}
+    # Carrega apenas as avaliações do usuário e sprint passadas como parâmetro
+    if usuario["matricula"] in data:
+        avaliacoes = data[usuario["matricula"]][f"Sprint {sprint}"]
+    else:
+        avaliacoes[usuario["matricula"]] = {}
 
-def salvar_avaliacao(usuario, avaliacao):
-    pass
+    return avaliacoes
 
+def salvar_avaliacao(usuario, sprint, avaliacoes):
+    # Carrega todo o arquivo json na variável local data
+    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Atualiza a avaliação do usuário que realizou a avaliação
+    if usuario["matricula"] in data:
+        data[usuario["matricula"]][f"Sprint {sprint}"].update(avaliacoes)
+    else:
+        data[usuario["matricula"]] = {} 
+        data[usuario["matricula"]][f"Sprint {sprint}"] = avaliacoes
+
+    # Salva a variável data atualizada no arquivo json
+    with open('avaliacoes.json', 'w') as f:
+        json.dump(data, f, indent=4)
+    
 
 def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
@@ -115,17 +141,15 @@ def tela_avaliacao(sprint, usuario):
     with open('data.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    # Carrega o arquivo avaliações.json
-    avaliacoes = {}
-    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
-        avaliacoes = json.load(f)
+    avaliacoes = carregar_avaliacao(sprint, usuario)
 
     # Armazena a lista de usuários não avaliados
     usuarios_nao_avaliados = [usuario for usuario in data['usuarios'] if usuario['matricula'] != 'admin']
 
     atualizar_usuario_e_usuarios_nao_avaliados(usuario)
     
-    respostas = []  # Criar uma lista para armazenar as respostas
+    # Criar uma lista para armazenar as respostas
+    respostas = []
 
     avaliacao_layout = layout_avaliacao(usuario["nome"])
 
@@ -143,7 +167,7 @@ def tela_avaliacao(sprint, usuario):
     avaliacao_janela_anterior = avaliacao_janela
 
     # Estrutura para armazenar temporariamente a avaliação
-    avaliacao = {"sprint": "", "tipo": "individual", f"matricula": f"{usuario['matricula']}", "respostas": {}}   
+    avaliacao = {"tipo": "individual", "respostas": {}}   
 
     # Loop de eventos da janela de avaliação
     while True:
@@ -172,11 +196,11 @@ def tela_avaliacao(sprint, usuario):
             # Armazenar a avaliação em uma estrutura temporária
             avaliacao["respostas"] = respostas
 
-            # Apenda a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
-            avaliacoes[usuario["matricula"]]["avaliacao"].append(avaliacao)
+            # Armazena a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
+            avaliacoes[usuario_atual["matricula"]] = avaliacao
 
             # Cria uma nova estrutura temporária para armezenar a próxima avaliação
-            avaliacao = {"sprint": "", "tipo": "equipe", f"matricula": f"{usuario_atual['matricula']}", "respostas": {}}
+            avaliacao = {"tipo": "equipe", "respostas": {}}
 
             # Atualiza o usuário atual e a lista de usuários não avaliados
             atualizar_usuario_e_usuarios_nao_avaliados(usuario_atual)
@@ -196,7 +220,7 @@ def tela_avaliacao(sprint, usuario):
                                             element_padding=(20, 20))
                 
                 # Habilita o botão da avaliação da equipe, o botão serve apenas para indicar que está
-                # sendo feita a avaliação individual
+                # sendo feita a avaliação de um membro da equipe
                 avaliacao_janela['equipe'].update(disabled=False, button_color=('white', 'green'))
 
                 # Definir o tamanho mínimo da janela
@@ -211,7 +235,10 @@ def tela_avaliacao(sprint, usuario):
                 sg.popup('A avaliação foi concluída!', title='Fim da avaliação', keep_on_top=True)
                 break
         elif event == 'sair':
+            salvar_avaliacao(usuario, sprint, avaliacoes)
             avaliacao_janela.close()
             break
 
-tela_avaliacao(1, {'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
+# Esse código roda somente em debug
+if gettrace():
+    tela_avaliacao(1, {'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
