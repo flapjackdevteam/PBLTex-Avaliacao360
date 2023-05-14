@@ -107,7 +107,10 @@ def carregar_avaliacao(sprint, usuario):
     avaliacoes = {}
     # Carrega apenas as avaliações do usuário e sprint passadas como parâmetro
     if usuario["matricula"] in data:
-        avaliacoes = data[usuario["matricula"]][f"Sprint {sprint}"]
+        if data[usuario["matricula"]].get(f"Sprint {sprint}") != None:
+            avaliacoes = data[usuario["matricula"]][f"Sprint {sprint}"]
+        else:
+            avaliacoes[usuario["matricula"]] = {}
     else:
         avaliacoes[usuario["matricula"]] = {}
 
@@ -120,8 +123,13 @@ def salvar_avaliacao(usuario, sprint, avaliacoes):
 
     # Atualiza a avaliação do usuário que realizou a avaliação
     if usuario["matricula"] in data:
-        data[usuario["matricula"]][f"Sprint {sprint}"].update(avaliacoes)
+        if data[usuario["matricula"]].get(f"Sprint {sprint}") != None:
+            # Se o usuário já existir ele apenas atualiza as avaliações dele
+            data[usuario["matricula"]][f"Sprint {sprint}"].update(avaliacoes)
+        else:
+            data[usuario["matricula"]][f"Sprint {sprint}"] = avaliacoes
     else:
+        # Caso contrário ele cria um novo usuario com as avaliações
         data[usuario["matricula"]] = {} 
         data[usuario["matricula"]][f"Sprint {sprint}"] = avaliacoes
 

@@ -1,9 +1,7 @@
 import PySimpleGUI as sg
-import csv
-import json
-import avaliacao
 import admin
 import login
+import sprint
 
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
@@ -44,7 +42,7 @@ while True:
         usuario = login.popup_login(event)
         if (usuario):
             print(usuario)
-            avaliacao.tela_avaliacao(1, usuario)
+            sprint.seleciona_sprint(usuario)
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
 
