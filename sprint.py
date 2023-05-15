@@ -31,13 +31,13 @@ def seleciona_sprint(usuario):
         if event == sg.WIN_CLOSED:
             break
         elif event == "sprint-1":
-            avaliacao.tela_avaliacao(1, usuario)
+            avaliacao.tela_avaliacao("1", usuario)
         elif event == "sprint-2":
-            avaliacao.tela_avaliacao(2, usuario)
+            avaliacao.tela_avaliacao("2", usuario)
         elif event == "sprint-3":
-            avaliacao.tela_avaliacao(3, usuario)
+            avaliacao.tela_avaliacao("3", usuario)
         elif event == "sprint-4":
-            avaliacao.tela_avaliacao(4, usuario)
+            avaliacao.tela_avaliacao("4", usuario)
         else:
             continue
 
