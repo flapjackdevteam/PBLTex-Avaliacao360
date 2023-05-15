@@ -1,6 +1,6 @@
 {
   "admin": {
-    "senha": "pbladmintex23"
+    "senha": "123456"
   },
   "usuarios": [
     {
@@ -32,7 +32,7 @@
       "matricula": "1460282123002"
     },
     {
-      "nome": "Agnaldo Cardoso",
+      "nome": "Aguinaldo Cardoso",
       "matricula": "1461152123034"
     },
     {

@@ -56,8 +56,7 @@ def popup_login(tipo):
                     if matricula == usuario['matricula']:
                         # Atualiza o usuário atual e a lista de usuários não avaliados
                         return usuario
-                    else:
-                        return None
+                return None
             else:
                 return None
             # Fecha a janela de login do administrador
