@@ -1,6 +1,9 @@
 import PySimpleGUI as sg
 import json
+import db_json as dbj
 import sys
+import dashboard_1
+
 
 # Para propósito de debug apenas
 gettrace = getattr(sys, 'gettrace', None)
@@ -65,9 +68,9 @@ def layout_avaliacao(nome):
 
     button_layout = [[sg.Button("Individual", key="individual", disabled=True, size=(10,2), button_color=('white', 'gray'))],
                     [sg.Button("Equipe", key="equipe", disabled=True, size=(10,2), button_color=('white', 'gray'))],
-                    [sg.Button("Turma", key="turma", disabled=True, size=(10,2), button_color=('white', 'gray'))],
                     [sg.HSeparator()],
-                    [sg.Button("Limpar", key="limpar", size=(10,2))],
+                    [sg.Button("Salvar", key="salvar", size=(10,2))],
+                    [sg.Button("Minha\nAvaliação", key="avaliacao", size=(10,2))],
                     [sg.Button("Sair", key="sair", size=(10,2))]]
 
     # Insere o layout das perguntas
@@ -99,45 +102,6 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def carregar_avaliacao(sprint, usuario):
-    # Carrega todo o arquivo json na variável local data
-    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
-    avaliacoes = {}
-    # Carrega apenas as avaliações do usuário e sprint passadas como parâmetro
-    if usuario["matricula"] in data:
-        if data[usuario["matricula"]].get(f"Sprint {sprint}") != None:
-            avaliacoes = data[usuario["matricula"]][f"Sprint {sprint}"]
-        else:
-            avaliacoes[usuario["matricula"]] = {}
-    else:
-        avaliacoes[usuario["matricula"]] = {}
-
-    return avaliacoes
-
-def salvar_avaliacao(usuario, sprint, avaliacoes):
-    # Carrega todo o arquivo json na variável local data
-    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-
-    # Atualiza a avaliação do usuário que realizou a avaliação
-    if usuario["matricula"] in data:
-        if data[usuario["matricula"]].get(f"Sprint {sprint}") != None:
-            # Se o usuário já existir ele apenas atualiza as avaliações dele
-            data[usuario["matricula"]][f"Sprint {sprint}"].update(avaliacoes)
-        else:
-            data[usuario["matricula"]][f"Sprint {sprint}"] = avaliacoes
-    else:
-        # Caso contrário ele cria um novo usuario com as avaliações
-        data[usuario["matricula"]] = {} 
-        data[usuario["matricula"]][f"Sprint {sprint}"] = avaliacoes
-
-    # Salva a variável data atualizada no arquivo json
-    with open('avaliacoes.json', 'w') as f:
-        json.dump(data, f, indent=4)
-    
-
 def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
@@ -149,7 +113,7 @@ def tela_avaliacao(sprint, usuario):
     with open('data.json', 'r', encoding='utf-8') as f:
         data = json.load(f)
 
-    avaliacoes = carregar_avaliacao(sprint, usuario)
+    dbj.carrega_arquivo_json('avaliacoes.json')
 
     # Armazena a lista de usuários não avaliados
     usuarios_nao_avaliados = [usuario for usuario in data['usuarios'] if usuario['matricula'] != 'admin']
@@ -176,13 +140,12 @@ def tela_avaliacao(sprint, usuario):
 
     # Estrutura para armazenar temporariamente a avaliação
     avaliacao = {"tipo": "individual", "respostas": {}}
+    
+    respostas = dbj.get_respostas(sprint, usuario, usuario_atual)
+    if respostas:
+        for r in respostas:
+            avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
 
-    if usuario_atual["matricula"] in avaliacoes:
-        if avaliacoes[usuario_atual["matricula"]].get("respostas") != None:
-            respostas = avaliacoes[usuario_atual["matricula"]]["respostas"]
-
-            for r in respostas:
-                avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
 
     # Loop de eventos da janela de avaliação
     while True:
@@ -208,11 +171,8 @@ def tela_avaliacao(sprint, usuario):
                 sg.popup("Preencha todas os tópicos antes de continuar")
                 continue
 
-            # Armazenar a avaliação em uma estrutura temporária
-            avaliacao["respostas"] = respostas
-
             # Armazena a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
-            avaliacoes[usuario_atual["matricula"]] = avaliacao
+            dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
 
             # Cria uma nova estrutura temporária para armezenar a próxima avaliação
             avaliacao = {"tipo": "equipe", "respostas": {}}
@@ -246,22 +206,31 @@ def tela_avaliacao(sprint, usuario):
                 avaliacao_janela_anterior.close()
                 avaliacao_janela_anterior = avaliacao_janela
 
-                if usuario_atual["matricula"] in avaliacoes:
-                    if avaliacoes[usuario_atual["matricula"]].get("respostas") != None:
-                        respostas = avaliacoes[usuario_atual["matricula"]]["respostas"]
-
-                        for r in respostas:
-                            avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
+                respostas = dbj.get_respostas(sprint, usuario, usuario_atual)
+                if respostas:
+                    for r in respostas:
+                        avaliacao_janela[f"{r}-opcao-{respostas[r]}"].update(True)
 
             else:
                 sg.popup('A avaliação foi concluída!', title='Fim da avaliação', keep_on_top=True)
+                dbj.set_respostas(sprint, usuario, usuario_atual, respostas) == None
+                dbj.salva_arquivo_json('avaliacoes.json')
+                sg.popup('Sua avaliação foi salva!', title='Avaliação salva!', keep_on_top=True)
                 break
+        elif event == 'salvar':
+            respostas = opcoes_selecionadas(values)
+            dbj.set_respostas(sprint, usuario, usuario_atual, respostas) == None
+            dbj.salva_arquivo_json('avaliacoes.json')
+            sg.popup('Sua avaliação foi salva!', title='Avaliação salva!', keep_on_top=True)
+
+        elif event == 'avaliacao':
+            dashboard_1.dashboard_individual(sprint, usuario)
+            continue
+            
         elif event == 'sair':
             avaliacao_janela.close()
             break
-    
-    salvar_avaliacao(usuario, sprint, avaliacoes)
 
 # Esse código roda somente em debug
 if gettrace():
-    tela_avaliacao(1, {'nome': 'Rodrigo Santos', 'matricula': '1460282313028'})
+    tela_avaliacao("1", {'nome': 'Fátima Leise', 'matricula': '1460282313001'})
