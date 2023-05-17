@@ -167,7 +167,7 @@ gerencial)</p>
 <span id="backlog"></span>
 
 ## Product Backlog
-| ID | User History                                                                                                           | Backlog                                                                      | Sprint                                                    | Prioridade |
+| ID | User Stories                                                                                                           | Backlog                                                                      | Sprint                                                    | Prioridade |
 |----|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------|------------|
 |1   | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.                      | Criação/Organização do GitHub                                                |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  | 
 |2   | Definição do fluxo de interação do usuário.                                                                            | Fluxograma                                                                   |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
