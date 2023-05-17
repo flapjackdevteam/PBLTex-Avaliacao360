@@ -169,41 +169,41 @@ gerencial)</p>
 ## Product Backlog
 | ID | User Stories                                                                                                           | Backlog                                                                      | Sprint                                                    | Prioridade |
 |----|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------|------------|
-|1   | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.                      | Criação/Organização do GitHub                                                |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  | 
-|2   | Definição do fluxo de interação do usuário.                                                                            | Fluxograma                                                                   |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
-|3   | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.                     | Esboço de tela                                                               |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
-|4   | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                                     | Protótipo de tela de login do administrador e usuário                        |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Desejável  |
-|5   | Ter uma possível previsão da entrega de cada Sprint futura.                                                            | Planejamento das outras Sprints (2, 3 e 4)                                   |![#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  |
-|6   | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|7   | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 | Tela de avaliação 360º do usuário.                                           |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Essencial  |
-|8   | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             | Definir e implementar o sistema de avaliação 360º                            |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|9   | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. | Definir e implementar base de dados contendo usuários e administrador        |![#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|10  | Detalhar dados e informações dos Dashboards.                                                                           | Definir os Dashboards                                                        |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Essencial  |
-|11  | Visualizar as respostas consolidadas referente ao Time e seus membros.                                                 | Dashboard do Time                                                            |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|12  | Visualizar as respostas consolidadas para cada membro individualmente.                                                 | Dashboard individual para cada usuário                                       |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|13  | Demonstrar como foi o desempenho da equipe durante a Sprint.                                                           | Dashboard da Sprint                                                          |![#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|14  | Garantir que o código esteja funcionando conforme esperado.                                                            | Revisão de código                                                            |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|15  | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                                     | Controle de qualidade                                                        |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|16  | Executar e analisar o código linha por linha para identificar algum erro ou problema.                                  | Debuggin                                                                     |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|17  | Garantir a implementação correta e funcional do software de acordo com as especificações projeto.                      | Refinamento do software                                                      |![#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
+|1   | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.                      | Criação/Organização do GitHub                                                |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  | 
+|2   | Definição do fluxo de interação do usuário.                                                                            | Fluxograma                                                                   |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
+|3   | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.                     | Esboço de tela                                                               |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
+|4   | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                                     | Protótipo de tela de login do administrador e usuário                        |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Desejável  |
+|5   | Ter uma possível previsão da entrega de cada Sprint futura.                                                            | Planejamento das outras Sprints (2, 3 e 4)                                   |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  |
+|6   | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
+|7   | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 | Tela de avaliação 360º do usuário.                                           |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Essencial  |
+|8   | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             | Definir e implementar o sistema de avaliação 360º                            |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
+|9   | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. | Definir e implementar base de dados contendo usuários e administrador        |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
+|10  | Detalhar dados e informações dos Dashboards.                                                                           | Definir os Dashboards                                                        |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Essencial  |
+|11  | Visualizar as respostas consolidadas referente ao Time e seus membros.                                                 | Dashboard do Time                                                            |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
+|12  | Visualizar as respostas consolidadas para cada membro individualmente.                                                 | Dashboard individual para cada usuário                                       |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
+|13  | Demonstrar como foi o desempenho da equipe durante a Sprint.                                                           | Dashboard da Sprint                                                          |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
+|14  | Garantir que o código esteja funcionando conforme esperado.                                                            | Revisão de código                                                            |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
+|15  | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                                     | Controle de qualidade                                                        |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
+|16  | Executar e analisar o código linha por linha para identificar algum erro ou problema.                                  | Debuggin                                                                     |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
+|17  | Garantir a implementação correta e funcional do software de acordo com as especificações projeto.                      | Refinamento do software                                                      |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
 
 
 <span id="Tecnologias"></span>
 
 ## Tecnologias Utilizadas
 
-* ![Python](https://www.python.org/)
-* ![PySimpleGui](https://www.pysimplegui.org/en/latest/)
-* ![Git/Github (Controle de versão)](https://github.com/)
-* ![Figma](https://www.figma.com/)
-* ![VsCode](https://code.visualstudio.com/)
-* ![Visio](https://www.microsoft.com/pt-br/microsoft-365/visio/flowchart-software)
+* [Python](https://www.python.org/)
+* [PySimpleGui](https://www.pysimplegui.org/en/latest/)
+* [Git/Github (Controle de versão)](https://github.com/)
+* [Figma](https://www.figma.com/)
+* [VsCode](https://code.visualstudio.com/)
+* [Visio](https://www.microsoft.com/pt-br/microsoft-365/visio/flowchart-software)
 
 <span id="Links"></span>
 
 ## Links Importantes
 
-![Links Importantes de ferramentas, tutoriais e ideias para o projeto API](Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md)
+[Links Importantes de ferramentas, tutoriais e ideias para o projeto API](Documenta%C3%A7%C3%A3o/Links%20Importantes%20de%20ferramentas%2C%20tutoriais%20e%20ideias%20para%20o%20projeto%20API.md)
 
 <span id="Equipe"></span>
 
