@@ -193,6 +193,8 @@ gerencial)</p>
 * [Figma](https://www.figma.com/)
 * [VsCode](https://code.visualstudio.com/)
 * [Visio](https://www.microsoft.com/pt-br/microsoft-365/visio/flowchart-software)
+* [Pandas](https://pandas.pydata.org/)
+* [Matplotlib](https://matplotlib.org/)
 
 <span id="Links"></span>
 
