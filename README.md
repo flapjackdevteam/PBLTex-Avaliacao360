@@ -21,12 +21,21 @@
    
 <span id="Objetivo"></span>
 
-## Como rodar a aplicação
+## Como rodar a aplicação no Linux
 1. Pré-requisitos git, python3, pip3, tkinter
 2. Clone o repositório `git clone`
 3. Baixe o módulo virtualenv com `pip3 install virtualenv`
 4. Crie um novo ambiente virtual, caso ainda não exista, com `virtualenv .venv`
 5. Acessar o ambiente de execução virtual com `source .venv/bin/activate`
+6. Instalar as dependências com `pip install -r requirements.txt`
+7. Executar a aplicação chamando `python main.py`
+
+## Como rodar a aplicação no Windows
+1. Pré-requisitos git, python3, pip3, tkinter
+2. Clone o repositório `git clone`
+3. Baixe o módulo virtualenv com `pip3 install virtualenv`
+4. Crie um novo ambiente virtual, caso ainda não exista, com `virtualenv .venv`
+5. Acessar o ambiente de execução virtual com `source .venv/Scripts/activate`
 6. Instalar as dependências com `pip install -r requirements.txt`
 7. Executar a aplicação chamando `python main.py`
  
