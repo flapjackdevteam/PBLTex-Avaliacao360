@@ -195,6 +195,7 @@ gerencial)</p>
 * [Visio](https://www.microsoft.com/pt-br/microsoft-365/visio/flowchart-software)
 * [Pandas](https://pandas.pydata.org/)
 * [Matplotlib](https://matplotlib.org/)
+* [JSON](https://www.json.org/json-pt.html)
 
 <span id="Links"></span>
 
