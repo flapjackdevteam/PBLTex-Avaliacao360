@@ -172,7 +172,50 @@ def selecionar_usuario():
 
     window_lista.close()
 
+def tela_opcoes_administracao():
+    # Layout da tela de administração
+    layout = [
+        [sg.Text("Gerenciamento do Administrador", font=("Helvetica", 16))],
+        [sg.Button("Gerenciamento de usuários", size=(20, 2), key="-GERENCIAMENTO_USUARIOS-")],
+        [sg.Button("Visualizar resultados", size=(20, 2), key="-VER_RESULTADO-")],
+        [sg.Button("Sair", size=(10, 1))]
+    ]
+     # Criação da janela da tela de administração
+    window = sg.Window("Painel do Administrador", layout)
 
+    # Loop de eventos da janela
+    while True:
+        event, values = window.read()
+
+        if event == sg.WINDOW_CLOSED or event == "Sair":
+            break
+        elif event == "-GERENCIAMENTO_USUARIOS-":
+            tela_administracao()
+        elif event == "-VER_RESULTADO-":
+            tela_resultado()
+
+
+    window.close()
+
+def tela_resultado():
+      # Layout da tela de resultado
+    layout = [
+        [sg.Text("Resultado das avaliações", font=("Helvetica", 16))],
+        [sg.Button("Sair", size=(10, 1))]
+    ]
+    # Criação da janela da tela de administração
+    window = sg.Window("Painel do Administrador", layout)
+
+    # Loop de eventos da janela
+    while True:
+        event, values = window.read()
+
+        if event == sg.WINDOW_CLOSED or event == "Sair":
+            break
+
+
+    window.close()
+    
 # Layout da interface
 layout = [
     [sg.Text("Gerenciamento do Administrador", font=("Helvetica", 16))],

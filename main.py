@@ -33,7 +33,7 @@ while True:
     elif event == 'admin':
         # Abre a janela de login do administrador
         if (login.popup_login(event)):
-            admin.tela_administracao()
+            admin.tela_opcoes_administracao()
         else:
             sg.popup("Senha incorreta!", title='Erro', keep_on_top=True)
         
