@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 import json
+import resultados
 
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
@@ -192,50 +193,9 @@ def tela_opcoes_administracao():
         elif event == "-GERENCIAMENTO_USUARIOS-":
             tela_administracao()
         elif event == "-VER_RESULTADO-":
-            tela_resultado()
-
-
-    window.close()
-
-def tela_resultado():
-      # Layout da tela de resultado
-    layout = [
-        [sg.Text("Resultado das avaliações", font=("Helvetica", 16))],
-        [sg.Button("Sair", size=(10, 1))]
-    ]
-    # Criação da janela da tela de administração
-    window = sg.Window("Painel do Administrador", layout)
-
-    # Loop de eventos da janela
-    while True:
-        event, values = window.read()
-
-        if event == sg.WINDOW_CLOSED or event == "Sair":
-            break
+            resultados.tela_resultado()
 
 
     window.close()
     
-# Layout da interface
-layout = [
-    [sg.Text("Gerenciamento do Administrador", font=("Helvetica", 16))],
-    [sg.Button("Adicionar usuário", size=(20, 2), key="-ADICIONAR-")],
-    [sg.Button("Selecionar usuário", size=(20, 2), key="-SELECIONAR-")],
-    [sg.Button("Sair", size=(10, 1))]
-]
 
-# Criação da janela
-window = sg.Window("Painel do Administrador", layout)
-
-# Loop de eventos da janela
-while True:
-    event, values = window.read()
-
-    if event == sg.WINDOW_CLOSED or event == "Sair":
-        break
-    elif event == "-ADICIONAR-":
-        adicionar_usuario()
-    elif event == "-SELECIONAR-":
-        selecionar_usuario()
-
-window.close()
