@@ -80,13 +80,16 @@ def tela_resultado_usuario_sprint(nome_usuario_selecionado):
         [sg.Canvas(key='-CANVAS_SPRINT_1-')] 
     ]
     layout_aba_sprint2 = [
-        [sg.Text("Resultado da Sprint 2", font=("Helvetica", 10))]  
+        [sg.Text("Resultado da Sprint 2", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_2-')]  
     ]
     layout_aba_sprint3 = [
-        [sg.Text("Resultado da Sprint 3", font=("Helvetica", 10))]  
+        [sg.Text("Resultado da Sprint 3", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_3-')]  
     ]
     layout_aba_sprint4 = [
-        [sg.Text("Resultado da Sprint 4", font=("Helvetica", 10))]  
+        [sg.Text("Resultado da Sprint 4", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_4-')]  
     ]
     layout = [
         [sg.Text("Resultado de " + nome_usuario_selecionado, font=("Helvetica", 16))],
@@ -101,10 +104,20 @@ def tela_resultado_usuario_sprint(nome_usuario_selecionado):
       
     window = sg.Window("Painel do Administrador", layout, finalize=True)
 
-    desenho_do_grafico_sprint1= dashboard_2.gerar_grafico_resultado_individual(1,buscar_usuario_por_nome(nome_usuario_selecionado))
+    usuario_alvo = buscar_usuario_por_nome(nome_usuario_selecionado)
 
-    tkcanvas = desenhar_grafico_na_aba(window['-CANVAS_SPRINT_1-'].TKCanvas, desenho_do_grafico_sprint1)
+    desenho_do_grafico_sprint1= dashboard_2.gerar_grafico_resultado_individual(1, usuario_alvo)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_1-'].TKCanvas, desenho_do_grafico_sprint1)
 
+    desenho_do_grafico_sprint2= dashboard_2.gerar_grafico_resultado_individual(2, usuario_alvo)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_2-'].TKCanvas, desenho_do_grafico_sprint2)
+
+    desenho_do_grafico_sprint3= dashboard_2.gerar_grafico_resultado_individual(3, usuario_alvo)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_3-'].TKCanvas, desenho_do_grafico_sprint3)
+
+    desenho_do_grafico_sprint4= dashboard_2.gerar_grafico_resultado_individual(4, usuario_alvo)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_4-'].TKCanvas, desenho_do_grafico_sprint4)
+    
     # Loop de eventos da janela
     while True:
         event, values = window.read()
