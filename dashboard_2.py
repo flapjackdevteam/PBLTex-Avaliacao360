@@ -9,7 +9,7 @@ plt.rcParams['toolbar'] = 'None'
 
 # Função para plotar o dashboard de um usuário baseado na sprint informada
 def gerar_grafico_resultado_individual(sprint, usuario):
-    figure = plt.figure(figsize=(10, 10))
+    figure = plt.figure(figsize=(7, 4))
     """ MANIPULAÇÃO DOS DADOS
     Manipulação dos dados para transformar os dados armazenados em formato json em
     um dataframe contendo apenas as informações necessárias para obter a média das
@@ -87,7 +87,7 @@ def gerar_grafico_resultado_individual(sprint, usuario):
         # Preenche a área formada pelo poligono
         ax.fill(angles, values, 'b', alpha=0.1)
 
-        # Cria as legendas
+        """ # Cria as legendas
         plt.plot([], [], ' ', label="EPA: Engajamento e Pró-atividade")
         plt.plot([], [], ' ', label="AA: Auto-gestão das Atividades")
         plt.plot([], [], ' ', label="CTE: Comunicação e Trabalho em Equipe")
@@ -96,8 +96,9 @@ def gerar_grafico_resultado_individual(sprint, usuario):
 
         # Plota a legenda no local especificado
         ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.17),
-                fancybox=True, shadow=True, ncol=2)
-
+                fancybox=True, shadow=True, ncol=2) """
 
     # Exibe o gráfico na tela
     return figure
+
+#gerar_grafico_resultado_individual(1,  {'nome': 'Fátima Leise', 'matricula': '1460282313001'})

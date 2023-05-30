@@ -4,6 +4,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib
 import numpy as np
 import dashboard_2
+import sys
 matplotlib.use('TkAgg')
 
 
@@ -91,6 +92,14 @@ def tela_resultado_usuario_sprint(nome_usuario_selecionado):
         [sg.Text("Resultado da Sprint 4", font=("Helvetica", 10))],
         [sg.Canvas(key='-CANVAS_SPRINT_4-')]  
     ]
+    font_size = 11
+    layout_legendas = [sg.Column([[sg.Text('EPA: Engajamento e Pró-atividade', font=('Arial', font_size))],
+                                  [sg.Text('AA: Auto-gestão das Atividades', font=('Arial', font_size))],
+                                  [sg.Text('CTE: Comunicação e Trabalho em Equipe', font=('Arial', font_size))]]),
+                       sg.VSeparator(),
+                       sg.Column([[sg.Text('CAT: Conhecimento e Aplicabilidade Técnica', font=('Arial', font_size))],
+                                  [sg.Text('ERVA: Entrega de Resultados com Valor Agregado', font=('Arial', font_size))]], vertical_alignment='Top')
+    ]
     layout = [
         [sg.Text("Resultado de " + nome_usuario_selecionado, font=("Helvetica", 16))],
         [sg.TabGroup([[
@@ -98,7 +107,7 @@ def tela_resultado_usuario_sprint(nome_usuario_selecionado):
             sg.Tab("Sprint 2", layout_aba_sprint2),
             sg.Tab("Sprint 3", layout_aba_sprint3),
             sg.Tab("Sprint 4", layout_aba_sprint4)    
-        ]])],
+        ]])],layout_legendas,
         [sg.Button("Sair", size=(10, 1))]
     ]
       
@@ -186,6 +195,10 @@ def tela_resultado_turma():
 
     window.close()
 
+# O trecho código abaixo roda somente em debug
+gettrace = getattr(sys, 'gettrace', None)
 
+if gettrace():
+    tela_resultado_usuario_sprint('Rodrigo Santos')
 
 
