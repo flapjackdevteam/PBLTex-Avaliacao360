@@ -1,5 +1,7 @@
 import json
 
+sprint = None
+usuario = None
 data = None
 
 def carrega_arquivo_json(arquivo):
@@ -47,4 +49,13 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas):
                  'Avaliacoes': []})
     
     set_respostas(sprint, usuario, usuario_avaliado, respostas)
+
+def get_feedback(sprint, usuario):
+    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    for avaliacao in data['avaliacoes']:
+            if avaliacao['sprint'] == sprint and avaliacao['avaliador']['matricula'] == 'admin' and avaliacao['avaliado']['matricula'] == usuario['matricula']:
+                return avaliacao['feedback']
+    return ""
+
 

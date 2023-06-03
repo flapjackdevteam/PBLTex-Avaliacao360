@@ -8,6 +8,8 @@ import dashboard_1
 # Para propósito de debug apenas
 gettrace = getattr(sys, 'gettrace', None)
 
+usuario = None
+sprint = None
 usuarios_nao_avaliados = []
 usuario_atual = None
 perguntas = ["Engajamento e Pró-atividade",
@@ -93,6 +95,15 @@ def layout_avaliacao(nome):
 
     return layout
 
+#Adiciona uma caixa de texto para dar feedback a cada usuario
+def layout_feedback(feedback):
+    layout = [
+        [sg.Text('Feedback', font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
+                 relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
+        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))]
+    ]
+    return layout
+
 # Função para obter as opções selecionadas
 def opcoes_selecionadas(values):
     respostas = {}
@@ -102,9 +113,19 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def tela_avaliacao(sprint, usuario):
+def tela_avaliacao(sprint, usuario, feedback):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
+
+def exibir_feedback(feedback):
+    sg.theme('DefaultNoMoreNagging')
+    layout = layout_feedback(feedback)
+    window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(20, 20))
+    while True:
+        event, values = window.read()
+        if event == sg.WIN_CLOSED:
+            break
+    window.close()
 
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
@@ -165,7 +186,17 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'proximo':
             # Obtém as opções selecionadas
             respostas = opcoes_selecionadas(values)
-                    
+
+            if not usuarios_nao_avaliados:
+                sg.popup('A avaliação foi concluída!', title='Fim da avaliação')
+                break
+            
+            # Obtenha o feedback do usuário atual
+            feedback = dbj.get_feedback(sprint, usuario_atual)
+
+            # Exibe o feedback para o usuário
+            exibir_feedback(feedback)
+
             # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):
                 sg.popup("Preencha todas os tópicos antes de continuar")
@@ -230,7 +261,3 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'sair':
             avaliacao_janela.close()
             break
-
-# Esse código roda somente em debug
-if gettrace():
-    tela_avaliacao("1", {'nome': 'Fátima Leise', 'matricula': '1460282313001'})

@@ -1,6 +1,8 @@
 import PySimpleGUI as sg
 import avaliacao
 
+feedback = None
+
 def seleciona_sprint(usuario):
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
@@ -31,13 +33,13 @@ def seleciona_sprint(usuario):
         if event == sg.WIN_CLOSED:
             break
         elif event == "sprint-1":
-            avaliacao.tela_avaliacao("1", usuario)
+            avaliacao.tela_avaliacao("1", usuario, feedback)
         elif event == "sprint-2":
-            avaliacao.tela_avaliacao("2", usuario)
+            avaliacao.tela_avaliacao("2", usuario, feedback)
         elif event == "sprint-3":
-            avaliacao.tela_avaliacao("3", usuario)
+            avaliacao.tela_avaliacao("3", usuario, feedback)
         elif event == "sprint-4":
-            avaliacao.tela_avaliacao("4", usuario)
+            avaliacao.tela_avaliacao("4", usuario, feedback)
         else:
             continue
 
