@@ -42,7 +42,7 @@ while True:
         usuario = login.popup_login(event)
         if (usuario):
             print(usuario)
-            sprint.seleciona_sprint(usuario)
+            sprint.seleciona_sprint(usuario, admin.get_qtd_de_sprints())
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
 

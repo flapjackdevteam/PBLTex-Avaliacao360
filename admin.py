@@ -2,6 +2,9 @@ import PySimpleGUI as sg
 import json
 import resultados
 
+# Variáveis globais
+qtd_de_sprints = 4
+
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
 
@@ -198,4 +201,5 @@ def tela_opcoes_administracao():
 
     window.close()
     
-
+def get_qtd_de_sprints():
+    return qtd_de_sprints
