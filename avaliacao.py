@@ -113,10 +113,6 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def tela_avaliacao(sprint, usuario, feedback):
-    global usuarios_nao_avaliados, usuario_atual
-    print("Abrindo a tela de avaliação")
-
 def exibir_feedback(feedback):
     sg.theme('DefaultNoMoreNagging')
     layout = layout_feedback(feedback)
@@ -126,6 +122,10 @@ def exibir_feedback(feedback):
         if event == sg.WIN_CLOSED:
             break
     window.close()
+
+def tela_avaliacao(sprint, usuario, feedback):
+    global usuarios_nao_avaliados, usuario_atual
+    print("Abrindo a tela de avaliação")
 
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
