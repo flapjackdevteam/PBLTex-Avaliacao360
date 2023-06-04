@@ -92,15 +92,32 @@ def layout_avaliacao(nome):
     return layout
 
 #Adiciona uma caixa de texto para dar feedback a cada usuario
+import PySimpleGUI as sg
+
 def layout_feedback(feedback):
     layout = [
-        [sg.Text('Feedback', font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
-            relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
-        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))],
-        [sg.InputText(key='feedback_input')],
-        [sg.Submit(), sg.Cancel()]
+        [sg.Text('Feedback', font=('Arial', 24), justification='center', relief=sg.RELIEF_RIDGE, border_width=2, pad=(10, 10))],
+        [sg.InputText(key='feedback_input', size=(30, 1), pad=(10, 10))],
+        [sg.Button('Submit', size=(10, 1), pad=(10, 10)), sg.Button('Cancel', size=(10, 1), pad=(10, 10))]
     ]
     return layout
+
+feedback = ""
+
+window = sg.Window('Feedback', layout_feedback(feedback), background_color='white')
+
+while True:
+    event, values = window.read()
+    if event in (None, 'Cancel'):
+        break
+    elif event == 'Submit':
+        feedback_input = values['feedback_input']
+        # Lógica para processar o feedback aqui
+        print(f"Feedback: {feedback_input}")
+        break
+
+window.close()
+
 
 # Função para obter as opções selecionadas
 def opcoes_selecionadas(values):
@@ -114,7 +131,7 @@ def opcoes_selecionadas(values):
 def exibir_feedback(feedback):
     sg.theme('DefaultNoMoreNagging')
     layout = layout_feedback(feedback)
-    window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(20, 20))
+    window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(10, 10))
     while True:
         event, values = window.read()
         if event == sg.WINDOW_CLOSED or event == 'Cancel':
