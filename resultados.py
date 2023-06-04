@@ -160,9 +160,16 @@ def buscar_usuario_por_nome(nome_usuario_selecionado):
 
 
 def tela_resultado_time():
+
+    lista_de_times= ["Flapjack"]
      # Layout da tela de resultado por time
     layout = [
         [sg.Text("Resultado por Time", font=("Helvetica", 16))],
+        [
+                sg.Text("Selecione o Time:", font=("Helvetica", 10)),
+                sg.Listbox(values= [time for time in lista_de_times], size=(30, 1), key="-LISTA-"),
+                sg.Button("Confirmar", size=(10, 1), key="-SELECIONA_TIME-")
+            ],
           [sg.Button("Sair", size=(10, 1))]
     ]
       # Criação da janela da tela de resultado por time
@@ -174,13 +181,27 @@ def tela_resultado_time():
 
         if event == sg.WINDOW_CLOSED or event == "Sair":
             break
+        elif event == "-SELECIONA_TIME-":
+            if len(values ["-LISTA-"]) > 0:
+                time_selecionado = values ["-LISTA-"][0]
+                tela_resultado_time_sprint(time_selecionado)
+            else:
+                sg.popup("Nenhum time selecionado!")
+
 
     window.close()
 
 def tela_resultado_turma():
      # Layout da tela de resultado por turma
+    lista_de_turma= ["BD"]
+     # Layout da tela de resultado por time
     layout = [
         [sg.Text("Resultado por Turma", font=("Helvetica", 16))],
+        [
+                sg.Text("Selecione o Time:", font=("Helvetica", 10)),
+                sg.Listbox(values= [turma for turma in lista_de_turma], size=(30, 1), key="-LISTA-"),
+                sg.Button("Confirmar", size=(10, 1), key="-SELECIONA_TURMA-")
+            ],
           [sg.Button("Sair", size=(10, 1))]
     ]
       # Criação da janela da tela de resultado por turma
@@ -192,6 +213,13 @@ def tela_resultado_turma():
 
         if event == sg.WINDOW_CLOSED or event == "Sair":
             break
+        elif event == "-SELECIONA_TURMA-":
+            if len(values ["-LISTA-"]) > 0:
+                turma_selecionado = values ["-LISTA-"][0]
+                tela_resultado_turma_sprint(turma_selecionado)
+            else:
+                sg.popup("Nenhuma turma selecionada!")
+
 
     window.close()
 
@@ -200,5 +228,130 @@ gettrace = getattr(sys, 'gettrace', None)
 
 if gettrace():
     tela_resultado_usuario_sprint('Rodrigo Santos')
+
+def tela_resultado_time_sprint(time):
+       # Layout da tela de resultado usuário por sprint
+    layout_aba_sprint1 = [
+        [sg.Text("Resultado da Sprint 1", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_1-')] 
+    ]
+    layout_aba_sprint2 = [
+        [sg.Text("Resultado da Sprint 2", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_2-')]  
+    ]
+    layout_aba_sprint3 = [
+        [sg.Text("Resultado da Sprint 3", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_3-')]  
+    ]
+    layout_aba_sprint4 = [
+        [sg.Text("Resultado da Sprint 4", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_4-')]  
+    ]
+    font_size = 11
+    layout_legendas = [sg.Column([[sg.Text('EPA: Engajamento e Pró-atividade', font=('Arial', font_size))],
+                                  [sg.Text('AA: Auto-gestão das Atividades', font=('Arial', font_size))],
+                                  [sg.Text('CTE: Comunicação e Trabalho em Equipe', font=('Arial', font_size))]]),
+                       sg.VSeparator(),
+                       sg.Column([[sg.Text('CAT: Conhecimento e Aplicabilidade Técnica', font=('Arial', font_size))],
+                                  [sg.Text('ERVA: Entrega de Resultados com Valor Agregado', font=('Arial', font_size))]], vertical_alignment='Top')
+    ]
+    layout = [
+        [sg.Text("Resultado do time " + time, font=("Helvetica", 16))],
+        [sg.TabGroup([[
+            sg.Tab("Sprint 1", layout_aba_sprint1), 
+            sg.Tab("Sprint 2", layout_aba_sprint2),
+            sg.Tab("Sprint 3", layout_aba_sprint3),
+            sg.Tab("Sprint 4", layout_aba_sprint4)    
+        ]])],layout_legendas,
+        [sg.Button("Sair", size=(10, 1))]
+    ]
+      
+    window = sg.Window("Painel do Administrador", layout, finalize=True)
+
+
+    desenho_do_grafico_sprint1= dashboard_2.gerar_grafico_resultado_time(1, time)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_1-'].TKCanvas, desenho_do_grafico_sprint1)
+
+    desenho_do_grafico_sprint2= dashboard_2.gerar_grafico_resultado_time(2, time)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_2-'].TKCanvas, desenho_do_grafico_sprint2)
+
+    desenho_do_grafico_sprint3= dashboard_2.gerar_grafico_resultado_time(3, time)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_3-'].TKCanvas, desenho_do_grafico_sprint3)
+
+    desenho_do_grafico_sprint4= dashboard_2.gerar_grafico_resultado_time(4, time)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_4-'].TKCanvas, desenho_do_grafico_sprint4)
+    
+    # Loop de eventos da janela
+    while True:
+        event, values = window.read()
+
+        if event == sg.WINDOW_CLOSED or event == "Sair":
+            break
+
+
+    window.close()
+
+    
+def tela_resultado_turma_sprint(turma):
+       # Layout da tela de resultado usuário por sprint
+    layout_aba_sprint1 = [
+        [sg.Text("Resultado da Sprint 1", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_1-')] 
+    ]
+    layout_aba_sprint2 = [
+        [sg.Text("Resultado da Sprint 2", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_2-')]  
+    ]
+    layout_aba_sprint3 = [
+        [sg.Text("Resultado da Sprint 3", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_3-')]  
+    ]
+    layout_aba_sprint4 = [
+        [sg.Text("Resultado da Sprint 4", font=("Helvetica", 10))],
+        [sg.Canvas(key='-CANVAS_SPRINT_4-')]  
+    ]
+    font_size = 11
+    layout_legendas = [sg.Column([[sg.Text('EPA: Engajamento e Pró-atividade', font=('Arial', font_size))],
+                                  [sg.Text('AA: Auto-gestão das Atividades', font=('Arial', font_size))],
+                                  [sg.Text('CTE: Comunicação e Trabalho em Equipe', font=('Arial', font_size))]]),
+                       sg.VSeparator(),
+                       sg.Column([[sg.Text('CAT: Conhecimento e Aplicabilidade Técnica', font=('Arial', font_size))],
+                                  [sg.Text('ERVA: Entrega de Resultados com Valor Agregado', font=('Arial', font_size))]], vertical_alignment='Top')
+    ]
+    layout = [
+        [sg.Text("Resultado da turma " + turma, font=("Helvetica", 16))],
+        [sg.TabGroup([[
+            sg.Tab("Sprint 1", layout_aba_sprint1), 
+            sg.Tab("Sprint 2", layout_aba_sprint2),
+            sg.Tab("Sprint 3", layout_aba_sprint3),
+            sg.Tab("Sprint 4", layout_aba_sprint4)    
+        ]])],layout_legendas,
+        [sg.Button("Sair", size=(10, 1))]
+    ]
+      
+    window = sg.Window("Painel do Administrador", layout, finalize=True)
+
+
+    desenho_do_grafico_sprint1= dashboard_2.gerar_grafico_resultado_turma(1, turma)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_1-'].TKCanvas, desenho_do_grafico_sprint1)
+
+    desenho_do_grafico_sprint2= dashboard_2.gerar_grafico_resultado_turma(2, turma)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_2-'].TKCanvas, desenho_do_grafico_sprint2)
+
+    desenho_do_grafico_sprint3= dashboard_2.gerar_grafico_resultado_turma(3, turma)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_3-'].TKCanvas, desenho_do_grafico_sprint3)
+
+    desenho_do_grafico_sprint4= dashboard_2.gerar_grafico_resultado_turma(4, turma)
+    desenhar_grafico_na_aba(window['-CANVAS_SPRINT_4-'].TKCanvas, desenho_do_grafico_sprint4)
+    
+    # Loop de eventos da janela
+    while True:
+        event, values = window.read()
+
+        if event == sg.WINDOW_CLOSED or event == "Sair":
+            break
+
+
+    window.close()
 
 
