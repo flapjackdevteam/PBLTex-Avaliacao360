@@ -29,33 +29,49 @@ def get_respostas(sprint, usuario, usuario_avaliado):
         
     return None
 
-def set_respostas(sprint, usuario, usuario_avaliado, respostas):
+def set_respostas(sprint, usuario, usuario_avaliado, respostas, feedback):
     global data
     for avaliador in data:
         if avaliador["RA1"] == usuario["matricula"] and avaliador["Sprint"] == sprint:
-                for avaliacoes in avaliador["Avaliacoes"]:
-                    if avaliacoes["RA2"] == usuario_avaliado["matricula"]:
-                        avaliacoes["Respostas"] = respostas
-                        return
-                
-                avaliador["Avaliacoes"].append({"RA2": usuario_avaliado["matricula"],
-                                       "Nome": usuario_avaliado["nome"],
-                                       "Respostas": respostas})
-                return
-        
+            for avaliacoes in avaliador["Avaliacoes"]:
+                if avaliacoes["RA2"] == usuario_avaliado["matricula"]:
+                    avaliacoes["Respostas"] = respostas
+                    avaliacoes["Respostas"]["feedback"] = feedback
+                    return
+
+            avaliador["Avaliacoes"].append({"RA2": usuario_avaliado["matricula"],
+                                            "Nome": usuario_avaliado["nome"],
+                                            "Respostas": {"feedback": feedback}})
+            return
+
     data.append({'RA1': usuario['matricula'],
                  'Nome': usuario['nome'],
                  'Sprint': sprint,
-                 'Avaliacoes': []})
-    
-    set_respostas(sprint, usuario, usuario_avaliado, respostas)
+                 'Avaliacoes': [{"RA2": usuario_avaliado["matricula"],
+                                 "Nome": usuario_avaliado["nome"],
+                                 "Respostas": {"feedback": feedback}}]})
 
 def get_feedback(sprint, usuario):
-    with open('avaliacoes.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-    for avaliacao in data['avaliacoes']:
-            if avaliacao['sprint'] == sprint and avaliacao['avaliador']['matricula'] == 'admin' and avaliacao['avaliado']['matricula'] == usuario['matricula']:
-                return avaliacao['feedback']
+    global data
+    for avaliador in data:
+        if (
+            avaliador['Sprint'] == sprint
+            and avaliador['RA1'] == 'admin'
+            and avaliador['RA2'] == usuario['matricula']
+        ):
+            for avaliacoes in avaliador['Avaliacoes']:
+                if avaliacoes['RA2'] == usuario['matricula']:
+                    return avaliacoes['Respostas'].get('feedback', '')
     return ""
 
+import json
+
+def set_feedback(sprint, usuario, feedback):
+    data = get_json_data()
+    if sprint is not None:
+        if sprint not in data:
+            data[sprint] = {}
+        data[sprint][usuario] = feedback
+
+    salva_arquivo_json('avaliacoes.json')  
 

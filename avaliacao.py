@@ -1,13 +1,9 @@
 import PySimpleGUI as sg
 import json
 import db_json as dbj
-import sys
 import dashboard_1
 
-
-# Para propósito de debug apenas
-gettrace = getattr(sys, 'gettrace', None)
-
+values= None
 usuario = None
 sprint = None
 usuarios_nao_avaliados = []
@@ -99,8 +95,10 @@ def layout_avaliacao(nome):
 def layout_feedback(feedback):
     layout = [
         [sg.Text('Feedback', font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
-                 relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
-        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))]
+            relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
+        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))],
+        [sg.InputText(key='feedback_input')],
+        [sg.Submit(), sg.Cancel()]
     ]
     return layout
 
@@ -119,9 +117,14 @@ def exibir_feedback(feedback):
     window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(20, 20))
     while True:
         event, values = window.read()
-        if event == sg.WIN_CLOSED:
+        if event == sg.WINDOW_CLOSED or event == 'Cancel':
+            break
+        elif event == 'Submit':
+            feedback_text = values['feedback_input']
+            dbj.set_feedback(sprint, usuario_atual, feedback_text)
             break
     window.close()
+
 
 def tela_avaliacao(sprint, usuario, feedback):
     global usuarios_nao_avaliados, usuario_atual
@@ -160,7 +163,7 @@ def tela_avaliacao(sprint, usuario, feedback):
     avaliacao_janela_anterior = avaliacao_janela
 
     # Estrutura para armazenar temporariamente a avaliação
-    avaliacao = {"tipo": "individual", "respostas": {}}
+    avaliacao = {"tipo": "individual", "respostas": {}, "feedback":{}}
     
     respostas = dbj.get_respostas(sprint, usuario, usuario_atual)
     if respostas:
@@ -203,10 +206,10 @@ def tela_avaliacao(sprint, usuario, feedback):
                 continue
 
             # Armazena a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
-            dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
+            dbj.set_respostas(sprint, usuario, usuario_atual, respostas, feedback)
 
             # Cria uma nova estrutura temporária para armezenar a próxima avaliação
-            avaliacao = {"tipo": "equipe", "respostas": {}}
+            avaliacao = {"tipo": "equipe", "respostas": {}, "feedback":{}}
 
             # Atualiza o usuário atual e a lista de usuários não avaliados
             atualizar_usuario_e_usuarios_nao_avaliados(usuario_atual)
