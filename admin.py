@@ -14,6 +14,7 @@ def tela_administracao():
         [sg.Text("Gerenciamento do Administrador", font=("Helvetica", 16))],
         [sg.Button("Adicionar usuário", size=(20, 2), key="-ADICIONAR-")],
         [sg.Button("Selecionar usuário", size=(20, 2), key="-SELECIONAR-")],
+        [sg.Button("Configurar Sprints", size=(20, 2), key="-CONFIGURAR_SPRINTS-")],
         [sg.Button("Sair", size=(10, 1))]
     ]
 
@@ -30,8 +31,33 @@ def tela_administracao():
             adicionar_usuario()
         elif event == "-SELECIONAR-":
             selecionar_usuario()
+        elif event == "-CONFIGURAR_SPRINTS-":
+            configurar_sprints()
 
     window.close()
+
+def configurar_sprints():
+    global qtd_de_sprints
+
+    layout_config_sprints = [
+        [sg.Text("Quantidade de Sprints:", size=(18, 1)), sg.Input(key="-SPRINTS-", default_text=str(qtd_de_sprints), size=(10, 1))],
+        [sg.Button("Salvar", size=(10, 1))]
+    ]
+
+    window_config_sprints = sg.Window("Configurar Sprints", layout_config_sprints)
+
+    while True:
+        event_config_sprints, values_config_sprints = window_config_sprints.read()
+
+        if event_config_sprints == sg.WINDOW_CLOSED or event_config_sprints == "Salvar":
+            break
+
+    window_config_sprints.close()
+
+    # Atualizar a quantidade de sprints com o valor digitado
+    qtd_de_sprints = int(values_config_sprints["-SPRINTS-"])
+
+    sg.popup(f"Quantidade de Sprints configurada para: {qtd_de_sprints}")
 
 # Solicitar informações do novo usuário
 def adicionar_usuario():
