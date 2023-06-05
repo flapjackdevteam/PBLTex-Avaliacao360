@@ -4,14 +4,11 @@ import db_json as dbj
 import sys
 import dashboard_1
 
-
-# Para propósito de debug apenas
-gettrace = getattr(sys, 'gettrace', None)
-
 usuario = None
 sprint = None
 usuarios_nao_avaliados = []
 usuario_atual = None
+feedback = ''
 perguntas = ["Engajamento e Pró-atividade",
              "Auto-gestão das Atividades",
              "Comunicação e Trabalho em Equipe",
@@ -113,19 +110,13 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def tela_avaliacao(sprint, usuario, feedback):
+def exibir_feedback(sprint, feedback):
+    sg.ScrolledTextBox('\n\n'.join(feedback), title='Feedbacks recebidos na sprint ' + sprint)
+    
+
+def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
-
-def exibir_feedback(feedback):
-    sg.theme('DefaultNoMoreNagging')
-    layout = layout_feedback(feedback)
-    window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(20, 20))
-    while True:
-        event, values = window.read()
-        if event == sg.WIN_CLOSED:
-            break
-    window.close()
 
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
@@ -195,7 +186,7 @@ def exibir_feedback(feedback):
             feedback = dbj.get_feedback(sprint, usuario_atual)
 
             # Exibe o feedback para o usuário
-            exibir_feedback(feedback)
+            exibir_feedback(sprint, feedback)
 
             # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):
@@ -261,3 +252,9 @@ def exibir_feedback(feedback):
         elif event == 'sair':
             avaliacao_janela.close()
             break
+
+# O código abaixo serve apeans para propósitos de debug
+gettrace = getattr(sys, 'gettrace', None)
+
+if gettrace():
+    tela_avaliacao('1', {'nome': 'Fátima Leise', 'matricula': '1460282313001'})
