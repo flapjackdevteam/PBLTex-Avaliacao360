@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import avaliacao
 import sys
 
-def seleciona_sprint(usuario):
+def seleciona_sprint(usuario, qtd_de_sprints):
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
 
@@ -20,16 +20,11 @@ def seleciona_sprint(usuario):
         event, values = window.read()
         if event == sg.WIN_CLOSED:
             break
-        elif event == "sprint-1":
-            avaliacao.tela_avaliacao("1", usuario)
-        elif event == "sprint-2":
-            avaliacao.tela_avaliacao("2", usuario)
-        elif event == "sprint-3":
-            avaliacao.tela_avaliacao("3", usuario)
-        elif event == "sprint-4":
-            avaliacao.tela_avaliacao("4", usuario)
-        else:
-            continue
+        elif event == '-CANCELAR-':
+            break
+        elif event == '-SELECIONAR-':
+            sprint = str(values['-LISTA-'][0])
+            avaliacao.tela_avaliacao(sprint, usuario)
 
     # Fecha a janela principal
     window.close()
