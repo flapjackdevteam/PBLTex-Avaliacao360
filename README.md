@@ -16,9 +16,9 @@
     <a href="#tecnologias">Tecnologias utilizadas</a> |
     <a href="#links">Links importantes</a> | 
     <a href="#equipe">Equipe</a> |
-    
+
 </p>
-   
+
 <span id="Objetivo"></span>
 
 ## Como rodar a aplicação no Linux
@@ -38,7 +38,7 @@
 5. Acessar o ambiente de execução virtual com `source .venv/Scripts/activate`
 6. Instalar as dependências com `pip install -r requirements.txt`
 7. Executar a aplicação chamando `python main.py`
- 
+
 ## Objetivo
 
 <p align="justify"> A instituição de ensino <strong> PBLTeX</strong></strong>, especializada em cursos práticos de ensino aplicando PBL (Problem Based Learning) desenvolveu uma dinâmica de <strong> Avaliação Democratizada</strong> baseada na técnica de <strong> Avaliação 360º</strong>.
@@ -118,7 +118,7 @@ gerencial)</p>
 
 <details>
  <summary> Seleção </summary>
-  
+
   <img src="Documenta%C3%A7%C3%A3o/sketchs/selecao.png" width=750>
 
 </details>
@@ -147,7 +147,7 @@ gerencial)</p>
 
 <details>
  <summary> Mensagem finalização </summary>
- 
+
  <img src="Documenta%C3%A7%C3%A3o/sketchs/msg_finalizacao.png" width=750>
 
 </details>
@@ -176,25 +176,17 @@ gerencial)</p>
 <span id="backlog"></span>
 
 ## Product Backlog
-| ID | User Stories                                                                                                           | Backlog                                                                      | Sprint                                                    | Prioridade |
-|----|------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|-----------------------------------------------------------|------------|
-|1   | Armazenar as infomações de desenvolvimento e administrar a evolução de cada integrante da equipe.                      | Criação/Organização do GitHub                                                |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  | 
-|2   | Definição do fluxo de interação do usuário.                                                                            | Fluxograma                                                                   |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
-|3   | Poder apresentar uma ideia base de como seria a experiência do usuário e apresentação do software.                     | Esboço de tela                                                               |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Importante |
-|4   | Demonstar a interface inicial e funcionalidade do login do administrador e usuário                                     | Protótipo de tela de login do administrador e usuário                        |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Desejável  |
-|5   | Ter uma possível previsão da entrega de cada Sprint futura.                                                            | Planejamento das outras Sprints (2, 3 e 4)                                   |[#01](https://github.com/orgs/flapjackdevteam/projects/7) | Essencial  |
-|6   | Separar as funcionalidades atribuidas ao administrador dos usuários.                                                   | Sistema de gerenciamento, cadastro e controle do Administrador no aplicativo |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|7   | Planejar, visualizar e organizar as perguntas utilizadas na avaliação.                                                 | Tela de avaliação 360º do usuário.                                           |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Essencial  |
-|8   | Parte funcional da avaliação onde irá gerar os dados com base nas perguntas para ralização dos Dashboards.             | Definir e implementar o sistema de avaliação 360º                            |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|9   | Criar arquivo JSON contendo informações de login de usuário comum e administrador para implementar controle de acesso. | Definir e implementar base de dados contendo usuários e administrador        |[#02](https://github.com/orgs/flapjackdevteam/projects/9) | Importante |
-|10  | Detalhar dados e informações dos Dashboards.                                                                           | Definir os Dashboards                                                        |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Essencial  |
-|11  | Visualizar as respostas consolidadas referente ao Time e seus membros.                                                 | Dashboard do Time                                                            |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|12  | Visualizar as respostas consolidadas para cada membro individualmente.                                                 | Dashboard individual para cada usuário                                       |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|13  | Demonstrar como foi o desempenho da equipe durante a Sprint.                                                           | Dashboard da Sprint                                                          |[#03](https://github.com/orgs/flapjackdevteam/projects/10)| Importante |
-|14  | Garantir que o código esteja funcionando conforme esperado.                                                            | Revisão de código                                                            |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|15  | Garantir que todos requisitos funcionais estão aderentes as exigências do cliente.                                     | Controle de qualidade                                                        |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|16  | Executar e analisar o código linha por linha para identificar algum erro ou problema.                                  | Debuggin                                                                     |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
-|17  | Garantir a implementação correta e funcional do software de acordo com as especificações projeto.                      | Refinamento do software                                                      |[#04](https://github.com/orgs/flapjackdevteam/projects/11)| Essencial  |
+| ID   | User Stories                                                 | Épico                       | Sprint                                                     | Prioridade |
+| ---- | ------------------------------------------------------------ | --------------------------- | ---------------------------------------------------------- | ---------- |
+| 1    | O usuário deve ser capaz de realizar uma avaliação 360º (avaliando a si proprio e aos membros do seu time). | Avaliação 360º              | [#02](https://github.com/orgs/flapjackdevteam/projects/9)  | Essencial  |
+| 2    | A avaliação deve ser baseada em uma escala Likert (5 valores), pedindo feedback do usuário para respostas abaixo de 2. | Avaliação 360º              | [#02](https://github.com/orgs/flapjackdevteam/projects/9)  | Essencial  |
+| 3    | O usuário deve ser capaz de gerar um dashboard detalhando seu desempenho durante a Sprint, ou seja, como ele foi avaliado pelo time durante a Sprint. | Dashboard individual/Sprint | [#03](https://github.com/orgs/flapjackdevteam/projects/10) | Importante |
+| 4    | O administrador deverá possuir acesso ao dashboard do desempenho do Time, que exibirá uma média das avaliações dos membros do time analisado em relação as competências avaliadas. | Dashboard Time              | [#04](https://github.com/orgs/flapjackdevteam/projects/11) | Desejável  |
+| 5    | O administrador deverá possuir acesso ao dashboard do desempenho da Turma, que exibirá uma média das avaliações dos membros da turma analisada  em relação as competências avaliadas. | Dashboard Turma             | [#04](https://github.com/orgs/flapjackdevteam/projects/11) | Desejável  |
+| 6    | O administrador deve ser capaz de adicionar, excluir ou modificar os dados dos usuários. | Controle de usuário         | [#03](https://github.com/orgs/flapjackdevteam/projects/10) | Importante |
+| 7    | O administrador deve ser capaz de adicionar, excluir e gerenciar os times. | Controle de Time            | [#03](https://github.com/orgs/flapjackdevteam/projects/10) | Importante |
+| 8    | O administrador deve ser capaz de adicionar, excluir e gerenciar as turmas. | Controle de Turma           | [#04](https://github.com/orgs/flapjackdevteam/projects/11) | Importante |
+| 9    | O administrador será capaz de definir a quantidade de Sprints. | Controle de Sprints         | [#04](https://github.com/orgs/flapjackdevteam/projects/11) | Importante |
 
 
 <span id="Tecnologias"></span>
