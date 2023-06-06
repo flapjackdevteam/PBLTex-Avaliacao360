@@ -6,7 +6,6 @@ import db_json as dbj
 # Remove a barra de feramentas do matplotlib
 plt.rcParams['toolbar'] = 'None'
 
-
 # Função para plotar o dashboard de um usuário baseado na sprint informada
 def gerar_grafico_resultado_individual(sprint, usuario):
     figure = plt.figure(figsize=(7, 4))
@@ -87,18 +86,7 @@ def gerar_grafico_resultado_individual(sprint, usuario):
         # Preenche a área formada pelo poligono
         ax.fill(angles, values, 'b', alpha=0.1)
 
-        """ # Cria as legendas
-        plt.plot([], [], ' ', label="EPA: Engajamento e Pró-atividade")
-        plt.plot([], [], ' ', label="AA: Auto-gestão das Atividades")
-        plt.plot([], [], ' ', label="CTE: Comunicação e Trabalho em Equipe")
-        plt.plot([], [], ' ', label="CAT: Conhecimento e Aplicabilidade Técnica")
-        plt.plot([], [], ' ', label="ERVA: Entrega de Resultados com Valor Agregado")
-
-        # Plota a legenda no local especificado
-        ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.17),
-                fancybox=True, shadow=True, ncol=2) """
-
-    # Exibe o gráfico na tela
+    # Retorna a figura do gráfico
     return figure
 
 #gerar_grafico_resultado_individual(1,  {'nome': 'Fátima Leise', 'matricula': '1460282313001'})
@@ -181,18 +169,7 @@ def gerar_grafico_resultado_time(sprint, time):
         # Preenche a área formada pelo poligono
         ax.fill(angles, values, 'b', alpha=0.1)
 
-        """ # Cria as legendas
-        plt.plot([], [], ' ', label="EPA: Engajamento e Pró-atividade")
-        plt.plot([], [], ' ', label="AA: Auto-gestão das Atividades")
-        plt.plot([], [], ' ', label="CTE: Comunicação e Trabalho em Equipe")
-        plt.plot([], [], ' ', label="CAT: Conhecimento e Aplicabilidade Técnica")
-        plt.plot([], [], ' ', label="ERVA: Entrega de Resultados com Valor Agregado")
-
-        # Plota a legenda no local especificado
-        ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.17),
-                fancybox=True, shadow=True, ncol=2) """
-
-    # Exibe o gráfico na tela
+    # Retorna a figura do gráfico
     return figure
 
 
@@ -274,16 +251,5 @@ def gerar_grafico_resultado_turma(sprint, turma):
         # Preenche a área formada pelo poligono
         ax.fill(angles, values, 'b', alpha=0.1)
 
-        """ # Cria as legendas
-        plt.plot([], [], ' ', label="EPA: Engajamento e Pró-atividade")
-        plt.plot([], [], ' ', label="AA: Auto-gestão das Atividades")
-        plt.plot([], [], ' ', label="CTE: Comunicação e Trabalho em Equipe")
-        plt.plot([], [], ' ', label="CAT: Conhecimento e Aplicabilidade Técnica")
-        plt.plot([], [], ' ', label="ERVA: Entrega de Resultados com Valor Agregado")
-
-        # Plota a legenda no local especificado
-        ax.legend(loc='lower center', bbox_to_anchor=(0.5, -0.17),
-                fancybox=True, shadow=True, ncol=2) """
-
-    # Exibe o gráfico na tela
+    # Retorna a figura do gráfico
     return figure
