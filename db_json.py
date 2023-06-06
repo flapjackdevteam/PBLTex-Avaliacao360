@@ -40,7 +40,8 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas):
                 
                 avaliador["Avaliacoes"].append({"RA2": usuario_avaliado["matricula"],
                                        "Nome": usuario_avaliado["nome"],
-                                       "Respostas": respostas})
+                                       "Respostas": respostas,
+                                       'Feedback': ''})
                 return
         
     data.append({'RA1': usuario['matricula'],
