@@ -1,9 +1,7 @@
 import PySimpleGUI as sg
 import json
 import resultados
-
-# Variáveis globais
-qtd_de_sprints = 4
+import db_json as dbj
 
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
@@ -37,7 +35,7 @@ def tela_administracao():
     window.close()
 
 def configurar_sprints():
-    global qtd_de_sprints
+    qtd_de_sprints = dbj.get_qtd_de_sprints()
 
     layout_config_sprints = [
         [sg.Text("Quantidade de Sprints:", size=(18, 1)), sg.Input(key="-SPRINTS-", default_text=str(qtd_de_sprints), size=(10, 1))],
@@ -54,8 +52,9 @@ def configurar_sprints():
 
     window_config_sprints.close()
 
-    # Atualizar a quantidade de sprints com o valor digitado
+    # Persiste a quantidade de sprints
     qtd_de_sprints = int(values_config_sprints["-SPRINTS-"])
+    dbj.set_qtd_de_sprints(qtd_de_sprints)
 
     sg.popup(f"Quantidade de Sprints configurada para: {qtd_de_sprints}")
 
@@ -226,6 +225,3 @@ def tela_opcoes_administracao():
 
 
     window.close()
-    
-def get_qtd_de_sprints():
-    return qtd_de_sprints

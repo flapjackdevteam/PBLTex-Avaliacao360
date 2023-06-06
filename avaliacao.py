@@ -252,9 +252,3 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'sair':
             avaliacao_janela.close()
             break
-
-# O código abaixo serve apeans para propósitos de debug
-gettrace = getattr(sys, 'gettrace', None)
-
-if gettrace():
-    tela_avaliacao('1', {'nome': 'Fátima Leise', 'matricula': '1460282313001'})

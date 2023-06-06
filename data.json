@@ -1,1 +1,50 @@
-{"admin": {"senha": "123456"}, "usuarios": [{"nome": "Rodrigo Santos", "matricula": "1460282313028", "turma": "BD", "time": "Flapjack"}, {"nome": "Gleialison dos Santos", "matricula": "1460282313055", "turma": "BD", "time": "Flapjack"}, {"nome": "Fatima Leise", "matricula": "1460282313001", "turma": "BD", "time": "Flapjack"}, {"nome": "Michel Momose", "matricula": "1460282313039", "turma": "BD", "time": "Flapjack"}, {"nome": "Julio Cesar", "matricula": "1460282123002", "turma": "BD", "time": "Flapjack"}, {"nome": "Aguinaldo Cardoso", "matricula": "1461152123034", "turma": "BD", "time": "Flapjack"}, {"nome": "Heitor Cardoso", "matricula": "1460282313022", "turma": "BD", "time": "Flapjack"}]}
+{
+    "admin": {
+        "senha": "123456",
+        "qtd_sprints": 10
+    },
+    "usuarios": [
+        {
+            "nome": "Rodrigo Santos",
+            "matricula": "1460282313028",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Gleialison dos Santos",
+            "matricula": "1460282313055",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Fatima Leise",
+            "matricula": "1460282313001",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Michel Momose",
+            "matricula": "1460282313039",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Julio Cesar",
+            "matricula": "1460282123002",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Aguinaldo Cardoso",
+            "matricula": "1461152123034",
+            "turma": "BD",
+            "time": "Flapjack"
+        },
+        {
+            "nome": "Heitor Cardoso",
+            "matricula": "1460282313022",
+            "turma": "BD",
+            "time": "Flapjack"
+        }
+    ]
+}

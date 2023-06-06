@@ -62,4 +62,13 @@ def get_feedback(sprint, usuario):
                 
     return feedbacks
 
+def get_qtd_de_sprints():
+    global data
+    carrega_arquivo_json('data.json')
+    return data['admin']['qtd_sprints']
 
+def set_qtd_de_sprints(qtd_sprints):
+    global data
+    carrega_arquivo_json('data.json')
+    data['admin']['qtd_sprints'] = qtd_sprints
+    salva_arquivo_json('data.json')

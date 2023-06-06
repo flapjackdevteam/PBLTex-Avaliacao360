@@ -7,6 +7,8 @@
             {
                 "RA2": "1460282313055",
                 "Nome": "Gleialison dos Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
@@ -19,6 +21,8 @@
             {
                 "RA2": "1460282313028",
                 "Nome": "Rodrigo Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
@@ -31,6 +35,8 @@
             {
                 "RA2": "1460282313001",
                 "Nome": "Fatima Leise",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
@@ -50,6 +56,8 @@
             {
                 "RA2": "1460282313028",
                 "Nome": "Rodrigo Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 3,
@@ -62,6 +70,8 @@
             {
                 "RA2": "1460282313055",
                 "Nome": "Gleialison dos Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 3
                 },
@@ -77,6 +87,8 @@
             {
                 "RA2": "1460282313055",
                 "Nome": "Gleialison dos Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 1,
@@ -89,6 +101,8 @@
             {
                 "RA2": "1460282313028",
                 "Nome": "Rodrigo Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
@@ -101,6 +115,8 @@
             {
                 "RA2": "1460282313001",
                 "Nome": "Fatima Leise",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 2,
                     "p1": 3,
@@ -126,6 +142,8 @@
             {
                 "RA2": "1460282313001",
                 "Nome": "Fatima Leise",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
@@ -138,6 +156,8 @@
             {
                 "RA2": "1460282313028",
                 "Nome": "Rodrigo Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 3,
                     "p1": 4,
@@ -150,6 +170,8 @@
             {
                 "RA2": "1460282313055",
                 "Nome": "Gleialison dos Santos",
+                "turma": "BD", 
+                "time": "Flapjack",
                 "Respostas": {
                     "p0": 1,
                     "p1": 2,
