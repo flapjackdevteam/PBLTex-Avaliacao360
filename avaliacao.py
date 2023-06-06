@@ -1,9 +1,9 @@
 import PySimpleGUI as sg
 import json
 import db_json as dbj
-import sys
 import dashboard_1
 
+values= None
 usuario = None
 sprint = None
 usuarios_nao_avaliados = []
@@ -93,13 +93,32 @@ def layout_avaliacao(nome):
     return layout
 
 #Adiciona uma caixa de texto para dar feedback a cada usuario
+import PySimpleGUI as sg
+
 def layout_feedback(feedback):
     layout = [
-        [sg.Text('Feedback', font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
-                 relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
-        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))]
+        [sg.Text('Feedback', font=('Arial', 24), justification='center', relief=sg.RELIEF_RIDGE, border_width=2, pad=(10, 10))],
+        [sg.InputText(key='feedback_input', size=(30, 1), pad=(10, 10))],
+        [sg.Button('Submit', size=(10, 1), pad=(10, 10)), sg.Button('Cancel', size=(10, 1), pad=(10, 10))]
     ]
     return layout
+
+feedback = ""
+
+window = sg.Window('Feedback', layout_feedback(feedback), background_color='white')
+
+while True:
+    event, values = window.read()
+    if event in (None, 'Cancel'):
+        break
+    elif event == 'Submit':
+        feedback_input = values['feedback_input']
+        # Lógica para processar o feedback aqui
+        print(f"Feedback: {feedback_input}")
+        break
+
+window.close()
+
 
 # Função para obter as opções selecionadas
 def opcoes_selecionadas(values):
@@ -110,11 +129,22 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def exibir_feedback(sprint, feedback):
-    sg.ScrolledTextBox('\n\n'.join(feedback), title='Feedbacks recebidos na sprint ' + sprint)
-    
+def exibir_feedback(feedback):
+    sg.theme('DefaultNoMoreNagging')
+    layout = layout_feedback(feedback)
+    window = sg.Window('Avaliação 360° - PBLTex', layout, finalize=True, resizable=True, element_padding=(10, 10))
+    while True:
+        event, values = window.read()
+        if event == sg.WINDOW_CLOSED or event == 'Cancel':
+            break
+        elif event == 'Submit':
+            feedback_text = values['feedback_input']
+            dbj.set_feedback(sprint, usuario_atual, feedback_text)
+            break
+    window.close()
 
-def tela_avaliacao(sprint, usuario):
+
+def tela_avaliacao(sprint, usuario, feedback):
     global usuarios_nao_avaliados, usuario_atual
     print("Abrindo a tela de avaliação")
 
@@ -151,7 +181,7 @@ def tela_avaliacao(sprint, usuario):
     avaliacao_janela_anterior = avaliacao_janela
 
     # Estrutura para armazenar temporariamente a avaliação
-    avaliacao = {"tipo": "individual", "respostas": {}}
+    avaliacao = {"tipo": "individual", "respostas": {}, "feedback":{}}
     
     respostas = dbj.get_respostas(sprint, usuario, usuario_atual)
     if respostas:
@@ -194,10 +224,10 @@ def tela_avaliacao(sprint, usuario):
                 continue
 
             # Armazena a avaliação na estrutura definitiva que será salva no arquivo json posteriormente
-            dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
+            dbj.set_respostas(sprint, usuario, usuario_atual, respostas, feedback)
 
             # Cria uma nova estrutura temporária para armezenar a próxima avaliação
-            avaliacao = {"tipo": "equipe", "respostas": {}}
+            avaliacao = {"tipo": "equipe", "respostas": {}, "feedback":{}}
 
             # Atualiza o usuário atual e a lista de usuários não avaliados
             atualizar_usuario_e_usuarios_nao_avaliados(usuario_atual)
@@ -252,9 +282,3 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'sair':
             avaliacao_janela.close()
             break
-
-# O código abaixo serve apeans para propósitos de debug
-gettrace = getattr(sys, 'gettrace', None)
-
-if gettrace():
-    tela_avaliacao('1', {'nome': 'Fátima Leise', 'matricula': '1460282313001'})

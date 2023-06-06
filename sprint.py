@@ -2,6 +2,8 @@ import PySimpleGUI as sg
 import avaliacao
 import sys
 
+feedback = None
+
 def seleciona_sprint(usuario, qtd_de_sprints):
     # Carrega um tema pré definido do PySimpleGui
     sg.theme('DefaultNoMoreNagging')
@@ -24,7 +26,7 @@ def seleciona_sprint(usuario, qtd_de_sprints):
             break
         elif event == '-SELECIONAR-':
             sprint = str(values['-LISTA-'][0])
-            avaliacao.tela_avaliacao(sprint, usuario)
+            avaliacao.tela_avaliacao(sprint, usuario, feedback)
 
     # Fecha a janela principal
     window.close()
