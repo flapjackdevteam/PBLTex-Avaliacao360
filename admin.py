@@ -95,9 +95,15 @@ def adicionar_usuario():
     # Adicionar o novo usuário à lista existente
     usuarios.append(novo_usuario)
 
+    # Adiciona o novo usuário na variável data
+    data['usuarios'].append({'matricula': novo_usuario['matricula'],
+                             'nome': novo_usuario['nome'],
+                             'turma': novo_usuario['turma'],
+                             'time': novo_usuario['times']})
+
     # Salvar a lista de usuários atualizada no arquivo JSON
     with open("data.json", "w") as arquivo:
-        json.dump(data, arquivo)
+        json.dump(data, arquivo, indent= 4)
 
     sg.popup("Usuário adicionado com sucesso!")
 
@@ -155,7 +161,7 @@ def remover_usuario(nome_usuario):
 
             # Salvar usuários atualizados no arquivo JSON
             with open("data.json", "w") as arquivo:
-                json.dump(data, arquivo)
+                json.dump(data, arquivo, indent=4)
 
             sg.popup("Usuário removido com sucesso!")
             return
