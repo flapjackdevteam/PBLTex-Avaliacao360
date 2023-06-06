@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import admin
 import login
 import sprint
+import db_json as dbj
 
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
@@ -42,7 +43,8 @@ while True:
         usuario = login.popup_login(event)
         if (usuario):
             print(usuario)
-            sprint.seleciona_sprint(usuario, admin.get_qtd_de_sprints())
+            qtd_sprints = dbj.get_qtd_de_sprints()
+            sprint.seleciona_sprint(usuario, qtd_sprints)
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
 

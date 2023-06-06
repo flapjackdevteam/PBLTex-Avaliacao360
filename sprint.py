@@ -1,6 +1,5 @@
 import PySimpleGUI as sg
 import avaliacao
-import sys
 
 def seleciona_sprint(usuario, qtd_de_sprints):
     # Carrega um tema pré definido do PySimpleGui
@@ -28,9 +27,3 @@ def seleciona_sprint(usuario, qtd_de_sprints):
 
     # Fecha a janela principal
     window.close()
-
-# O código abaixo serve apeans para propósitos de debug
-gettrace = getattr(sys, 'gettrace', None)
-
-if gettrace():
-    seleciona_sprint({'nome': 'Fátima Leise', 'matricula': '1460282313001'}, 10)

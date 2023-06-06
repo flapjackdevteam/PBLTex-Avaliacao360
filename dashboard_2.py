@@ -47,8 +47,19 @@ def gerar_grafico_resultado_individual(sprint, usuario):
 
     # Elimino registros que não há média, casos em que o usuário salvou a avaliação em branco
     if df.empty:
-         # Adiciona um título
-        plt.title("Não há dados referente a essa sprint", size=11, y=1.1)
+        figure, ax = plt.subplots(figsize=(7, 4))
+
+        # Build a rectangle in axes coords
+        left, width = .25, .5
+        bottom, height = .25, .5
+        right = left + width
+        top = bottom + height
+
+        ax.text(0.5 * (left + right), 0.5 * (bottom + top), 'Não há dados referente a essa sprint!',
+        horizontalalignment='center',
+        verticalalignment='center',
+        transform=ax.transAxes)
+        ax.set_axis_off()
     else:
         df.dropna(inplace=True)
 
@@ -130,8 +141,19 @@ def gerar_grafico_resultado_time(sprint, time):
 
     # Elimino registros que não há média, casos em que o usuário salvou a avaliação em branco
     if df.empty:
-         # Adiciona um título
-        plt.title("Não há dados referente a essa sprint", size=11, y=1.1)
+        figure, ax = plt.subplots(figsize=(7, 4))
+
+        # Build a rectangle in axes coords
+        left, width = .25, .5
+        bottom, height = .25, .5
+        right = left + width
+        top = bottom + height
+
+        ax.text(0.5 * (left + right), 0.5 * (bottom + top), 'Não há dados referente a essa sprint!',
+        horizontalalignment='center',
+        verticalalignment='center',
+        transform=ax.transAxes)
+        ax.set_axis_off()
     else:
         df.dropna(inplace=True)
 
@@ -212,8 +234,19 @@ def gerar_grafico_resultado_turma(sprint, turma):
 
     # Elimino registros que não há média, casos em que o usuário salvou a avaliação em branco
     if df.empty:
-         # Adiciona um título
-        plt.title("Não há dados referente a essa sprint", size=11, y=1.1)
+        figure, ax = plt.subplots(figsize=(7, 4))
+
+        # Build a rectangle in axes coords
+        left, width = .25, .5
+        bottom, height = .25, .5
+        right = left + width
+        top = bottom + height
+
+        ax.text(0.5 * (left + right), 0.5 * (bottom + top), 'Não há dados referente a essa sprint!',
+        horizontalalignment='center',
+        verticalalignment='center',
+        transform=ax.transAxes)
+        ax.set_axis_off()
     else:
         df.dropna(inplace=True)
 
