@@ -8,6 +8,7 @@ usuario = None
 sprint = None
 usuarios_nao_avaliados = []
 usuario_atual = None
+feedback = ''
 perguntas = ["Engajamento e Pró-atividade",
              "Auto-gestão das Atividades",
              "Comunicação e Trabalho em Equipe",
@@ -215,7 +216,7 @@ def tela_avaliacao(sprint, usuario, feedback):
             feedback = dbj.get_feedback(sprint, usuario_atual)
 
             # Exibe o feedback para o usuário
-            exibir_feedback(feedback)
+            exibir_feedback(sprint, feedback)
 
             # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):

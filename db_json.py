@@ -53,6 +53,7 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas, feedback):
 
 def get_feedback(sprint, usuario):
     global data
+
     for avaliador in data:
         if (
             avaliador['Sprint'] == sprint
