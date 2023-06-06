@@ -4,12 +4,11 @@ import db_json as dbj
 import sys
 import dashboard_1
 
-
-# Para propósito de debug apenas
-gettrace = getattr(sys, 'gettrace', None)
-
+usuario = None
+sprint = None
 usuarios_nao_avaliados = []
 usuario_atual = None
+feedback = ''
 perguntas = ["Engajamento e Pró-atividade",
              "Auto-gestão das Atividades",
              "Comunicação e Trabalho em Equipe",
@@ -55,15 +54,15 @@ def layout_questionario(layout):
 
     layout.append([sg.HSeparator(),sg.Text("1-Ruim, 2-Regular, 3-Bom, 4-Muito Bom, 5-Excelente")])
 
-def layout_avaliacao(nome):
+def layout_avaliacao(sprint, usuario):
     # Define o layout da janela de avaliação
     layout = []
     layout = [
-    [sg.Text('Você está avaliando o usuário ' + nome,
-            font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
-            relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)]
-            ,
-    [sg.Text('Responda ao questionário abaixo:', font=('Arial', 14), size=(40, 1))]
+        [sg.Text('Você está avaliando o usuário ' + usuario['nome'],
+                font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
+                relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)]
+                ,
+       
     ]
 
     button_layout = [[sg.Button("Individual", key="individual", disabled=True, size=(10,2), button_color=('white', 'gray'))],
@@ -75,6 +74,11 @@ def layout_avaliacao(nome):
 
     # Insere o layout das perguntas
     questionario = []
+    questionario.append([sg.Text('Nome: ' + usuario['nome'] +
+                '        |        Sprint: ' + sprint +
+                '        |        Turma: ' + usuario['turma'] +
+                '        |        Time: ' + usuario['time'], font=('Arial', 14))])
+    
     layout_questionario(questionario)
     #layout.append([sg.Frame('Avalie ' + nome, questionario)])
 
@@ -93,6 +97,15 @@ def layout_avaliacao(nome):
 
     return layout
 
+#Adiciona uma caixa de texto para dar feedback a cada usuario
+def layout_feedback(feedback):
+    layout = [
+        [sg.Text('Feedback', font=('Arial', 18), justification='center', background_color='white', size=(40, 0),
+                 relief=sg.RELIEF_RIDGE, border_width=2, expand_x=True)],
+        [sg.Text(feedback, font=('Arial', 14), size=(40, 1))]
+    ]
+    return layout
+
 # Função para obter as opções selecionadas
 def opcoes_selecionadas(values):
     respostas = {}
@@ -101,6 +114,9 @@ def opcoes_selecionadas(values):
             if values[f"p{i}-opcao-{j}"] == True:
                 respostas.update({f"p{i}": j})
     return respostas
+
+def exibir_feedback(sprint, feedback):
+    sg.ScrolledTextBox('\n\n'.join(feedback), title='Feedbacks recebidos na sprint ' + sprint)
 
 def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
@@ -123,7 +139,7 @@ def tela_avaliacao(sprint, usuario):
     # Criar uma lista para armazenar as respostas
     respostas = []
 
-    avaliacao_layout = layout_avaliacao(usuario["nome"])
+    avaliacao_layout = layout_avaliacao(sprint, usuario)
 
     # Cria a janela de avaliação
     avaliacao_janela = sg.Window('Avaliação 360° - PBLTex', avaliacao_layout, finalize=True,
@@ -165,7 +181,17 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'proximo':
             # Obtém as opções selecionadas
             respostas = opcoes_selecionadas(values)
-                    
+
+            if not usuarios_nao_avaliados:
+                sg.popup('A avaliação foi concluída!', title='Fim da avaliação')
+                break
+            
+            # Obtenha o feedback do usuário atual
+            #feedback = dbj.get_feedback(sprint, usuario_atual)
+
+            # Exibe o feedback para o usuário
+            #exibir_feedback(sprint, feedback)
+
             # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):
                 sg.popup("Preencha todas os tópicos antes de continuar")
@@ -187,7 +213,7 @@ def tela_avaliacao(sprint, usuario):
             # Obtém o próximo usuário a ser avaliado
             proximo_usuario = obter_proximo_usuario()
             if proximo_usuario:
-                avaliacao_layout = layout_avaliacao(proximo_usuario["nome"])
+                avaliacao_layout = layout_avaliacao(sprint, proximo_usuario)
 
                 # Cria a janela de avaliação
                 avaliacao_janela = sg.Window('Avaliação 360° - PBLTex', avaliacao_layout,
@@ -230,7 +256,3 @@ def tela_avaliacao(sprint, usuario):
         elif event == 'sair':
             avaliacao_janela.close()
             break
-
-# Esse código roda somente em debug
-if gettrace():
-    tela_avaliacao("1", {'nome': 'Fátima Leise', 'matricula': '1460282313001'})

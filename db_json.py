@@ -1,5 +1,7 @@
 import json
 
+sprint = None
+usuario = None
 data = None
 
 def carrega_arquivo_json(arquivo):
@@ -38,7 +40,8 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas):
                 
                 avaliador["Avaliacoes"].append({"RA2": usuario_avaliado["matricula"],
                                        "Nome": usuario_avaliado["nome"],
-                                       "Respostas": respostas})
+                                       "Respostas": respostas,
+                                       'Feedback': ''})
                 return
         
     data.append({'RA1': usuario['matricula'],
@@ -48,3 +51,25 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas):
     
     set_respostas(sprint, usuario, usuario_avaliado, respostas)
 
+def get_feedback(sprint, usuario):
+    global data
+    feedbacks = []
+
+    for i in data:
+        if i["Sprint"] == sprint:
+            for j in i["Avaliacoes"]:
+                if j["RA2"] == usuario['matricula']:
+                    feedbacks.append(j["Feedback"])
+                
+    return feedbacks
+
+def get_qtd_de_sprints():
+    global data
+    carrega_arquivo_json('data.json')
+    return data['admin']['qtd_sprints']
+
+def set_qtd_de_sprints(qtd_sprints):
+    global data
+    carrega_arquivo_json('data.json')
+    data['admin']['qtd_sprints'] = qtd_sprints
+    salva_arquivo_json('data.json')

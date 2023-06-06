@@ -2,6 +2,7 @@ import PySimpleGUI as sg
 import admin
 import login
 import sprint
+import db_json as dbj
 
 # Carrega um tema pré definido do PySimpleGui
 sg.theme('DefaultNoMoreNagging')
@@ -33,7 +34,7 @@ while True:
     elif event == 'admin':
         # Abre a janela de login do administrador
         if (login.popup_login(event)):
-            admin.tela_administracao()
+            admin.tela_opcoes_administracao()
         else:
             sg.popup("Senha incorreta!", title='Erro', keep_on_top=True)
         
@@ -42,7 +43,8 @@ while True:
         usuario = login.popup_login(event)
         if (usuario):
             print(usuario)
-            sprint.seleciona_sprint(usuario)
+            qtd_sprints = dbj.get_qtd_de_sprints()
+            sprint.seleciona_sprint(usuario, qtd_sprints)
         else:
             sg.popup("Usuário não cadastrado!", title='Erro', keep_on_top=True)
 
