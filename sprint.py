@@ -22,6 +22,9 @@ def seleciona_sprint(usuario, qtd_de_sprints):
         elif event == '-CANCELAR-':
             break
         elif event == '-SELECIONAR-':
+            if len(values['-LISTA-']) == 0:
+                sg.Popup("Selecione um item da lista!")
+                continue
             sprint = str(values['-LISTA-'][0])
             avaliacao.tela_avaliacao(sprint, usuario)
 

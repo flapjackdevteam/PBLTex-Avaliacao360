@@ -1,8 +1,7 @@
 import PySimpleGUI as sg
 import json
 import db_json as dbj
-import sys
-import dashboard_1
+import resultados
 
 usuario = None
 sprint = None
@@ -115,8 +114,36 @@ def opcoes_selecionadas(values):
                 respostas.update({f"p{i}": j})
     return respostas
 
-def exibir_feedback(sprint, feedback):
-    sg.ScrolledTextBox('\n\n'.join(feedback), title='Feedbacks recebidos na sprint ' + sprint)
+def tela_feedback(sprint, usuario, usuario_atual):
+    # Obtém o feedback atual que está armazenado no arquivo avaliacoes.json
+    default_text = dbj.get_feedback(sprint, usuario, usuario_atual)
+
+    layout_feedback = [
+        [sg.Text(f'Você deu uma nota menor ou igual a 3, deixe seu feedback para {usuario_atual["nome"]}', size=(50, 2))], 
+        [sg.Multiline(key="-FEEDBACK-", default_text=default_text, size=(52, 4))],
+        [sg.Button("Salvar", size=(10, 1)), sg.Button('Cancelar', size=(10, 1))]
+    ]
+
+    window_feedback = sg.Window("Deixe seu feedback!", layout_feedback)
+
+    while True:
+        event_feedback, values_feedback = window_feedback.read()
+
+        if event_feedback == "Salvar":
+            feedback = values_feedback["-FEEDBACK-"]
+
+            # Verifica se o campo de texto não está vazio
+            if len(feedback) == 0:
+                sg.Popup('É necessário deixar seu feedback para prosseguir!')
+                continue
+
+            # Persiste o feedback no arquivo avalicoes.json
+            dbj.set_feedback(sprint, usuario, usuario_atual, feedback)
+            break
+        elif event_feedback == sg.WINDOW_CLOSED or event_feedback == 'Cancelar':
+            break
+
+    window_feedback.close()
 
 def tela_avaliacao(sprint, usuario):
     global usuarios_nao_avaliados, usuario_atual
@@ -164,8 +191,20 @@ def tela_avaliacao(sprint, usuario):
 
 
     # Loop de eventos da janela de avaliação
+    feedback_ok = False
     while True:
         event, values = avaliacao_janela.read()
+
+        # Verifica se foi dado uma nota menor ou igual a 3
+        if event == 'proximo' or event == 'salvar':
+            respostas = opcoes_selecionadas(values)
+
+            for i in range(0, len(respostas)):
+                # Caso tenha sido dado uma nota menor ou igual a 3 e não seja uma avaliação individual/pessoal
+                if respostas[f'p{i}'] <= 3 and usuario != usuario_atual and feedback_ok == False:
+                    tela_feedback(sprint, usuario, usuario_atual)
+                    feedback_ok = True
+                    break
 
         if event == sg.WIN_CLOSED:
             break
@@ -185,12 +224,6 @@ def tela_avaliacao(sprint, usuario):
             if not usuarios_nao_avaliados:
                 sg.popup('A avaliação foi concluída!', title='Fim da avaliação')
                 break
-            
-            # Obtenha o feedback do usuário atual
-            #feedback = dbj.get_feedback(sprint, usuario_atual)
-
-            # Exibe o feedback para o usuário
-            #exibir_feedback(sprint, feedback)
 
             # Verifica se a quantidade de respostas é menor que a quantidade de perguntas
             if len(respostas) < len(perguntas):
@@ -213,6 +246,11 @@ def tela_avaliacao(sprint, usuario):
             # Obtém o próximo usuário a ser avaliado
             proximo_usuario = obter_proximo_usuario()
             if proximo_usuario:
+                # Salva a avaliação atual
+                dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
+                dbj.salva_arquivo_json('avaliacoes.json')
+                feedback_ok = False
+
                 avaliacao_layout = layout_avaliacao(sprint, proximo_usuario)
 
                 # Cria a janela de avaliação
@@ -239,18 +277,18 @@ def tela_avaliacao(sprint, usuario):
 
             else:
                 sg.popup('A avaliação foi concluída!', title='Fim da avaliação', keep_on_top=True)
-                dbj.set_respostas(sprint, usuario, usuario_atual, respostas) == None
+                dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
                 dbj.salva_arquivo_json('avaliacoes.json')
                 sg.popup('Sua avaliação foi salva!', title='Avaliação salva!', keep_on_top=True)
                 break
         elif event == 'salvar':
             respostas = opcoes_selecionadas(values)
-            dbj.set_respostas(sprint, usuario, usuario_atual, respostas) == None
+            dbj.set_respostas(sprint, usuario, usuario_atual, respostas)
             dbj.salva_arquivo_json('avaliacoes.json')
             sg.popup('Sua avaliação foi salva!', title='Avaliação salva!', keep_on_top=True)
 
         elif event == 'avaliacao':
-            dashboard_1.dashboard_individual(sprint, usuario)
+            resultados.tela_resultado_usuario_feedback(sprint, usuario)
             continue
             
         elif event == 'sair':

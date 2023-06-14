@@ -44,6 +44,7 @@ def gerar_grafico_resultado_individual(sprint, usuario):
     df['CTE'] *= 10
     df['CAT'] *= 10
     df['ERVA']*= 10
+    df.dropna(inplace=True)
 
     # Elimino registros que não há média, casos em que o usuário salvou a avaliação em branco
     if df.empty:
@@ -61,8 +62,6 @@ def gerar_grafico_resultado_individual(sprint, usuario):
         transform=ax.transAxes)
         ax.set_axis_off()
     else:
-        df.dropna(inplace=True)
-
         """ PLOTAGEM DO GRÁFICO
         O código abaixo é utilizado apenas para plotar o gráfico a partir do dataframe criado com os
         dados manipulados para a obtensão da média das avaliações de um usuário. """
@@ -99,8 +98,6 @@ def gerar_grafico_resultado_individual(sprint, usuario):
 
     # Retorna a figura do gráfico
     return figure
-
-#gerar_grafico_resultado_individual(1,  {'nome': 'Fátima Leise', 'matricula': '1460282313001'})
 
 def gerar_grafico_resultado_time(sprint, time):
     figure = plt.figure(figsize=(7, 4))
@@ -209,6 +206,7 @@ def gerar_grafico_resultado_turma(sprint, turma):
     # sub-estrutira json Avaliacoes que está aninhada nos elementos do json
     # de avaliacoes.json mantendo os elementos RA1 e Sprint
     df = pd.json_normalize(data, 'Avaliacoes', ['RA1', 'Sprint'])
+    print(df)
 
     # Renomeia as colunas das competencias para facilitar a manipulação dos dados
     df.rename(columns={'Respostas.p0': 'EPA',
@@ -219,7 +217,7 @@ def gerar_grafico_resultado_turma(sprint, turma):
               inplace=True)
 
 
-    # Filtra apenas as avaliações do usuário e sprint que desejo
+    # Filtra apenas as avaliações do turma e sprint que desejo
     df = df.query(f'turma == "{turma}" and Sprint == "{sprint}"')
 
     # Agrupa pelo RA2 e agrego pelas colunas EPA, AA, CTE, ERVA calculando suas médias (mean)
