@@ -1,8 +1,7 @@
 import PySimpleGUI as sg
 import json
 import db_json as dbj
-import sys
-import dashboard_1
+import resultados
 
 usuario = None
 sprint = None
@@ -250,7 +249,7 @@ def tela_avaliacao(sprint, usuario):
             sg.popup('Sua avaliação foi salva!', title='Avaliação salva!', keep_on_top=True)
 
         elif event == 'avaliacao':
-            dashboard_1.dashboard_individual(sprint, usuario)
+            resultados.tela_resultado_usuario_sprint(usuario['nome'])
             continue
             
         elif event == 'sair':

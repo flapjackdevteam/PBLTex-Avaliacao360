@@ -3,7 +3,7 @@ import json
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib
 import numpy as np
-import dashboard_2
+import dashboard
 import db_json as dbj
 
 matplotlib.use('TkAgg')
@@ -54,7 +54,8 @@ def tela_resultado_usuario():
         [sg.Button("Sair", size=(10, 1))]
     ]
       # Criação da janela da tela de resultado por usuário
-    window = sg.Window("Painel do Administrador", layout)
+    window = sg.Window("Painel do Administrador", layout, finalize=True,
+                            resizable=True)
 
     while True:
         event, values = window.read()
@@ -99,7 +100,7 @@ def tela_resultado_usuario_sprint(nome_usuario_selecionado):
     usuario_alvo = buscar_usuario_por_nome(nome_usuario_selecionado)
 
     for i in range(1, qtd_sprints + 1):
-        desenho_do_grafico = dashboard_2.gerar_grafico_resultado_individual(i, usuario_alvo)
+        desenho_do_grafico = dashboard.gerar_grafico_resultado_individual(i, usuario_alvo)
         desenhar_grafico_na_aba(window['-CANVAS_SPRINT_' + str(i) + '-'].TKCanvas, desenho_do_grafico)
     
     # Loop de eventos da janela
@@ -136,7 +137,7 @@ def buscar_usuario_por_nome(nome_usuario_selecionado):
 
 def tela_resultado_time():
 
-    lista_de_times= ["Flapjack"]
+    lista_de_times= dbj.get_times()
      # Layout da tela de resultado por time
     layout = [
         [sg.Text("Resultado por Time", font=("Helvetica", 16))],
@@ -168,7 +169,7 @@ def tela_resultado_time():
 
 def tela_resultado_turma():
      # Layout da tela de resultado por turma
-    lista_de_turma= ["BD"]
+    lista_de_turma= dbj.get_turmas()
      # Layout da tela de resultado por time
     layout = [
         [sg.Text("Resultado por Turma", font=("Helvetica", 16))],
@@ -224,7 +225,7 @@ def tela_resultado_time_sprint(time):
     window = sg.Window("Painel do Administrador", layout, finalize=True)
 
     for i in range(1, qtd_sprints + 1):
-        desenho_do_grafico = dashboard_2.gerar_grafico_resultado_time(i, time)
+        desenho_do_grafico = dashboard.gerar_grafico_resultado_time(i, time)
         desenhar_grafico_na_aba(window['-CANVAS_SPRINT_' + str(i) + '-'].TKCanvas, desenho_do_grafico)
     
     # Loop de eventos da janela
@@ -264,7 +265,7 @@ def tela_resultado_turma_sprint(turma):
     window = sg.Window("Painel do Administrador", layout, finalize=True)
 
     for i in range(1, qtd_sprints + 1):
-        desenho_do_grafico = dashboard_2.gerar_grafico_resultado_turma(i, turma)
+        desenho_do_grafico = dashboard.gerar_grafico_resultado_turma(i, turma)
         desenhar_grafico_na_aba(window['-CANVAS_SPRINT_' + str(i) + '-'].TKCanvas, desenho_do_grafico)
     
     # Loop de eventos da janela
