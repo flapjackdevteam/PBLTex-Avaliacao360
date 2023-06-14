@@ -55,17 +55,46 @@ def set_respostas(sprint, usuario, usuario_avaliado, respostas):
     
     set_respostas(sprint, usuario, usuario_avaliado, respostas)
 
-def get_feedback(sprint, usuario):
+def get_feedbacks(sprint, usuario):
     global data
-    feedbacks = []
+    carrega_arquivo_json('avaliacoes.json')
+
+    feedbacks = ''
 
     for i in data:
         if i["Sprint"] == sprint:
             for j in i["Avaliacoes"]:
                 if j["RA2"] == usuario['matricula']:
-                    feedbacks.append(j["Feedback"])
+                    if j['Feedback'] != '':
+                        feedbacks += f"Nome: {i['Nome']}\n"
+                        feedbacks += f"{j['Feedback']}\n\n"
                 
+    if feedbacks == '':
+        feedbacks = 'Não há feedbacks recebidos nesta sprint.'
+
     return feedbacks
+
+def get_feedback(sprint, usuario, usuario_atual):
+    global data
+    carrega_arquivo_json('avaliacoes.json')
+
+    for i in data:
+        if i['RA1'] == usuario['matricula'] and i["Sprint"] == sprint:
+            for j in i["Avaliacoes"]:
+                if j["RA2"] == usuario_atual['matricula']:
+                    return j["Feedback"]
+                
+    return ''
+
+def set_feedback(sprint, usuario, usuario_avaliado, feedback):
+    global data
+
+    for avaliador in data:
+        if avaliador["RA1"] == usuario["matricula"] and avaliador["Sprint"] == sprint:
+                for avaliacoes in avaliador["Avaliacoes"]:
+                    if avaliacoes["RA2"] == usuario_avaliado["matricula"]:
+                        avaliacoes["Feedback"] = feedback
+                        return
 
 def get_qtd_de_sprints():
     global data

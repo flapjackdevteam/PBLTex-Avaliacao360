@@ -277,4 +277,52 @@ def tela_resultado_turma_sprint(turma):
 
     window.close()
 
+def tela_resultado_usuario_feedback(sprint, usuario):
+    # Layout da tela de resultado usuário por sprint
+    qtd_sprints = dbj.get_qtd_de_sprints()
+    feedback_text = dbj.get_feedbacks(sprint, usuario)
+    layout_aba = []
+        
+    for i in range(1, qtd_sprints + 1):
+        layout_aba.append(sg.Tab('Sprint ' + str(i), [
+                [sg.Text("Resultado da Sprint ", font=("Helvetica", 10))],
+                [sg.Canvas(key='-CANVAS_SPRINT_' + str(i) + '-')]]))
+    font_size = 11
 
+    layout_legendas = [sg.Column([[sg.Text('EPA: Engajamento e Pró-atividade', font=('Arial', font_size))],
+                                  [sg.Text('AA: Auto-gestão das Atividades', font=('Arial', font_size))],
+                                  [sg.Text('CTE: Comunicação e Trabalho em Equipe', font=('Arial', font_size))]]),
+                       sg.VSeparator(),
+                       sg.Column([[sg.Text('CAT: Conhecimento e Aplicabilidade Técnica', font=('Arial', font_size))],
+                                  [sg.Text('ERVA: Entrega de Resultados com Valor Agregado', font=('Arial', font_size))]], vertical_alignment='Top')
+    ]
+    layout = [
+        [sg.Text("Resultado de " + usuario['nome'], font=("Helvetica", 16))],
+        [sg.TabGroup([layout_aba], change_submits=True, key='tabgr'), sg.Column([[sg.Text(f'Feedbacks recebidos na Sprint {sprint}', key='-TITULO-FEEDBACK-')], [sg.Multiline(key="-FEEDBACK-", size=(50, 27))]])],layout_legendas,
+        [sg.Button("Sair", size=(10, 1))]
+    ]
+      
+    window = sg.Window("Painel do Administrador", layout, finalize=True)
+    window['-FEEDBACK-'].print(feedback_text)
+
+    usuario_alvo = buscar_usuario_por_nome(usuario['nome'])
+
+    for i in range(1, qtd_sprints + 1):
+        desenho_do_grafico = dashboard.gerar_grafico_resultado_individual(i, usuario_alvo)
+        desenhar_grafico_na_aba(window['-CANVAS_SPRINT_' + str(i) + '-'].TKCanvas, desenho_do_grafico)
+    
+    # Loop de eventos da janela
+    while True:
+        event, values = window.read()
+
+        if event == 'tabgr':
+            sprint = values['tabgr'].replace('Sprint ', '')
+            feedback_text = dbj.get_feedbacks(sprint, usuario)
+            window['-FEEDBACK-'].Update('')
+            window['-TITULO-FEEDBACK-'].Update(f'Feedbacks recebidos na Sprint {sprint}')
+            window['-FEEDBACK-'].print(feedback_text)
+        elif event == sg.WINDOW_CLOSED or event == "Sair":
+            break
+
+
+    window.close()
